@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="OnBoardFlightApp.Music"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OnBoardFlightApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:OnBoardFlightApp.ViewModel"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <vm:Mp3ViewModel></vm:Mp3ViewModel>
+    </Page.DataContext>
+
+    <ScrollViewer>
+        <StackPanel>
+            <ListView Name="lvMusic" IsItemClickEnabled="True" ItemClick="Song_Click" ItemsSource="{Binding Songs}" SelectionChanged="LvSongs_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image HorizontalAlignment="Left" Width="150" Height="150" Source="{Binding img}" />
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding name}" FontSize="25"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

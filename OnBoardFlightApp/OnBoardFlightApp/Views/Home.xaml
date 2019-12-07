@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="OnBoardFlightApp.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OnBoardFlightApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:OnBoardFlightApp.Model"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <vm:Flight></vm:Flight>
+    </Page.DataContext>
+    <Grid>
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock Text="{x:Bind Flight.Naam, Mode=OneWay}" FontFamily="Arial"  FontSize="24" FontStyle="Italic" TextWrapping="WrapWholeWords"
+    CharacterSpacing="200" Foreground="CornflowerBlue" TextAlignment="Center" />
+            <Image Height="400" HorizontalAlignment="Stretch" Margin="0,0,0,0">
+            <Image.Source>
+                <BitmapImage UriSource="/Assets/Img/vliegtuig.jpg"/>
+            </Image.Source>
+        </Image>
+            <TextBlock Text="Zetelnr: ..." FontFamily="Arial"  FontSize="24" FontStyle="Italic" TextWrapping="WrapWholeWords"
+    CharacterSpacing="200" Foreground="CornflowerBlue" TextAlignment="Center" />
+        </StackPanel>
+
+    </Grid>
+</Page>

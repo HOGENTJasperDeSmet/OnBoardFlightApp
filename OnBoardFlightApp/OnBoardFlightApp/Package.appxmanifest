@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="9a5c1db1-1c89-4bd4-83dc-05a98cc5fd1c"
-    Publisher="CN=Jasper"
+    Name="bf2d7e0f-39fa-46eb-a083-56fd1868711f"
+    Publisher="CN=jordi"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="9a5c1db1-1c89-4bd4-83dc-05a98cc5fd1c" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="bf2d7e0f-39fa-46eb-a083-56fd1868711f" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>OnBoardFlightApp</DisplayName>
-    <PublisherDisplayName>Jasper</PublisherDisplayName>
+    <PublisherDisplayName>jordi</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
