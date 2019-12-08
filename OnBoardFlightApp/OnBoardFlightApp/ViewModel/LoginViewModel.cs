@@ -33,8 +33,8 @@ namespace OnBoardFlightApp.ViewModel
                 var response = await Client.PostAsync(Api, data);
 
                 string token = response.Content.ReadAsStringAsync().Result;
-                await new MessageDialog(token).ShowAsync();
-                return token;
+                string tokenstring = JsonConvert.DeserializeObject<string>(token);
+                return tokenstring;
             }
             catch (Exception ex)
             {

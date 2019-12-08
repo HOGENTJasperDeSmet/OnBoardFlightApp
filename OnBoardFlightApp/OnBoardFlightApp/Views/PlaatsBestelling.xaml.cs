@@ -43,7 +43,7 @@ namespace OnBoardFlightApp.Views
         {
             var i = comboBoxOpties.SelectedIndex;
             await ViewModel.Post();
-
+            Frame.Navigate(typeof(MijnBestellingen));
         }
 
         private void VoegToeButton_Click(object sender, RoutedEventArgs e)
