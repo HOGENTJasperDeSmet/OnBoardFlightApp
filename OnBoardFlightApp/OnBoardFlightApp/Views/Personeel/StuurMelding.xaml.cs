@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +26,34 @@ namespace OnBoardFlightApp.Views.Personeel
         public StuurMelding()
         {
             this.InitializeComponent();
+        }
+
+        private async void StuurButton_Click(object sender, RoutedEventArgs e)
+        {
+            var inhoud = MeldingText.Text;
+            if(inhoud != null || inhoud != "")
+            {
+                await ViewModel.Post(inhoud, 1);
+                await new MessageDialog("Melding geplaatst voor " + "user").ShowAsync();
+            }
+            else
+            {
+                await new MessageDialog("Vul een melding in.").ShowAsync();
+            }
+        }
+
+        private async void StuurButtonNaarIedereen_Click(object sender, RoutedEventArgs e)
+        {
+            var inhoud = MeldingText.Text;
+            if (inhoud != null || inhoud != "")
+            {
+                await ViewModel.PostToAll(inhoud);
+                await new MessageDialog("Melding geplaatst voor alle passagiers!").ShowAsync();
+            }
+            else
+            {
+                await new MessageDialog("Vul een melding in.").ShowAsync();
+            }
         }
     }
 }

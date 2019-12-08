@@ -16,17 +16,18 @@
     <ListView Name="AlleBestellingen" ItemsSource="{x:Bind ViewModel.AlleBestellingen, Mode=OneWay}">
         <ListView.HeaderTemplate>
             <DataTemplate x:DataType="model:Bestelling">
-                <StackPanel BorderThickness="0,0,0,1" BorderBrush="White" Orientation="Horizontal">
+                <StackPanel BorderThickness="0,0,0,1" BorderBrush="Black" Orientation="Horizontal">
                     <TextBlock Margin="15">Bestelling</TextBlock>
                     <TextBlock Margin="15">Aantal</TextBlock>
                     <TextBlock Margin="15">Gekozen opties</TextBlock>
-                    <TextBlock Margin="100 15 15 15">Toestand</TextBlock>
+                    <TextBlock Margin="15">Prijs/stuk</TextBlock>
+                    <TextBlock Margin="15 15 15 15">Toestand</TextBlock>
                 </StackPanel>
             </DataTemplate>
         </ListView.HeaderTemplate>
         <ListView.ItemTemplate>
-            <DataTemplate x:DataType="model:Bestelling">
-                <StackPanel BorderThickness="0,0,0,1" BorderBrush="White" Orientation="Horizontal">
+            <DataTemplate x:DataType="model:BestellingObjectVoorPersoneel">
+                <StackPanel BorderThickness="0,0,0,1" BorderBrush="Black" Orientation="Horizontal">
                     <TextBlock Margin="0 15 85 0" Text="{x:Bind Id}"></TextBlock>
                     <ListView Name="BestellingOpties" ItemsSource="{x:Bind BestellingTKs, Mode=OneWay}">
                         <ListView.ItemTemplate>
@@ -36,13 +37,13 @@
                                         <Run Text="{x:Bind Aantal}" FontSize="15"/>
                                         <Run Text="x" FontSize="15"/>
                                     </TextBlock>
-                                    <TextBlock Margin="15" Text="{x:Bind BestellingOptie.Naam}" FontSize="15"/>
-                                    <TextBlock Margin="15" Text="{x:Bind BestellingOptie.PrijsStr}" FontSize="15"/>
+                                    <TextBlock Margin="15" MinWidth="100" Text="{x:Bind BestellingOptie.Naam}" FontSize="15"/>
+                                    <TextBlock Margin="15" MinWidth="50" Text="{x:Bind BestellingOptie.PrijsStr}" FontSize="15"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <TextBlock Margin="15" Text="{x:Bind AfgehandeldString}" FontSize="15"/>
+                    <CheckBox Margin="15" IsChecked="{x:Bind Afgehandeld, Mode=TwoWay}"></CheckBox>
                 </StackPanel>
             </DataTemplate>
         </ListView.ItemTemplate>

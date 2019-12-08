@@ -13,7 +13,7 @@ namespace OnBoardFlightApp.ViewModel
 {
     class PersoneelBestellingViewModel
     {
-        public ObservableCollection<Bestelling> AlleBestellingen { get; set; }
+        public ObservableCollection<BestellingObjectVoorPersoneel> AlleBestellingen { get; set; }
         private string _token = "";
         public string Token { get { return _token; } set {
                 _token = value;
@@ -24,16 +24,17 @@ namespace OnBoardFlightApp.ViewModel
         public PersoneelBestellingViewModel()
         {
             client = new HttpClient();
-            AlleBestellingen = new ObservableCollection<Bestelling>();
+            AlleBestellingen = new ObservableCollection<BestellingObjectVoorPersoneel>();
         }
 
         public async void GetAll()
         {
-            client.DefaultRequestHeaders.Authorization =new AuthenticationHeaderValue("Bearer", _token);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
             var json = await client.GetStringAsync(new Uri("http://localhost:5000/api/Bestelling"));
-            var list = JsonConvert.DeserializeObject<IEnumerable<Bestelling>>(json);
+            var list = JsonConvert.DeserializeObject<IEnumerable<BestellingObjectVoorPersoneel>>(json);
             foreach(var i in list)
             {
+                i.Token = Token;
                 AlleBestellingen.Add(i);
             }
         }

@@ -1,6 +1,7 @@
 ﻿using OnBoardFlightApp.Views;
 using OnBoardFlightApp.Views.Personeel;
 using System.Linq;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -55,6 +56,9 @@ namespace OnBoardFlightApp
                 case "Bestellingen":
                     contentFrame.Navigate(typeof(Bestellingen), Token);
                     break;
+                case "Melding":
+                    contentFrame.Navigate(typeof(StuurMelding), Token);
+                    break;
             }
         }
 
@@ -62,6 +66,12 @@ namespace OnBoardFlightApp
         {
             Token = e.Parameter as string;
             contentFrame.Navigate(typeof(Bestellingen), Token);
+        }
+
+        private void NvSample_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(MainPage));
         }
     }
 }

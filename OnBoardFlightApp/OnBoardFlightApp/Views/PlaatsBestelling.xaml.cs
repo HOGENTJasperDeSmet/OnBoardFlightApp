@@ -50,7 +50,6 @@ namespace OnBoardFlightApp.Views
         {
             var i = comboBoxOpties.SelectedIndex;
             ViewModel.VoegOptieToe(i);
-
         }
     }
 }

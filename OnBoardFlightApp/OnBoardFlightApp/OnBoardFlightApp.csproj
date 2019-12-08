@@ -120,11 +120,17 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Bestelling.cs" />
+    <Compile Include="Model\BestellingObjectVoorPersoneel.cs" />
     <Compile Include="Model\BestellingOptie.cs" />
     <Compile Include="Model\BestellingTK.cs" />
+    <Compile Include="Model\Melding.cs" />
+    <Compile Include="Model\Passagier.cs" />
+    <Compile Include="Model\Zetel.cs" />
+    <Compile Include="ViewModel\MeldingViewModel.cs" />
     <Compile Include="ViewModel\PersoneelBestellingViewModel.cs" />
     <Compile Include="ViewModel\BestellingViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\PlaatsMeldingViewModel.cs" />
     <Compile Include="ViewModel\PlaatsBestellingViewModel.cs" />
     <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
@@ -134,6 +140,9 @@
       <DependentUpon>Info.xaml</DependentUpon>
     </Compile>
     <Compile Include="LocationManager.cs" />
+    <Compile Include="Views\Meldingen.xaml.cs">
+      <DependentUpon>Meldingen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Personeel\Bestellingen.xaml.cs">
       <DependentUpon>Bestellingen.xaml</DependentUpon>
     </Compile>
@@ -231,6 +240,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Info.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Meldingen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

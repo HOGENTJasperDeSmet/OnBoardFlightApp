@@ -1,5 +1,4 @@
-﻿using OnBoardFlightApp.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,9 +20,9 @@ namespace OnBoardFlightApp.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MijnBestellingen : Page
+    public sealed partial class Meldingen : Page
     {
-        public MijnBestellingen()
+        public Meldingen()
         {
             this.InitializeComponent();
         }

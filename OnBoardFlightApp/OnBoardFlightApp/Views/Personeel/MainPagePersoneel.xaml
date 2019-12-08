@@ -11,8 +11,10 @@
     <Grid>
         <NavigationView x:Name="nvSample"
                         Loaded="nvSample_Loaded"
-                Margin="0,12,0,0"              
-                ItemInvoked="nvSample_ItemInvoked">
+                        Margin="0,12,0,0"              
+                        ItemInvoked="nvSample_ItemInvoked"
+                        IsBackEnabled="True"
+                        BackRequested="NvSample_BackRequested">
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="Bookmarks" Content="Bestellingen" Tag="Bestellingen" />
                 <NavigationViewItem Icon="Sync" Content="Verzet passagier" Tag="Verzet" />

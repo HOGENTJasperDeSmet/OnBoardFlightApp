@@ -12,9 +12,11 @@
         <NavigationView x:Name="nvSample"
                         Loaded="nvSample_Loaded"
                 Margin="0,12,0,0"              
-                ItemInvoked="nvSample_ItemInvoked">
+                ItemInvoked="nvSample_ItemInvoked"
+                        IsBackButtonVisible="Collapsed">
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="Home" Content="Home" Tag="Home" />
+                <NavigationViewItem Icon="Mail" Content="Meldingen" Tag="Melding" />
                 <NavigationViewItem Icon="AllApps" Content="Informatie vlucht" Tag="Info" />
                 <NavigationViewItem Icon="Bullets" Content="Plaats bestelling" Tag="Bestelling" />
                 <NavigationViewItem Icon="List" Content="Overzicht bestellingen" Tag="Overzicht" />

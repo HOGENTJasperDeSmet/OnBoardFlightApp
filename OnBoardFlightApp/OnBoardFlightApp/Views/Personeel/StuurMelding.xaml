@@ -5,10 +5,59 @@
     xmlns:local="using:OnBoardFlightApp.Views.Personeel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:OnBoardFlightApp.ViewModel"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <vm:PlaatsMeldingViewModel x:Name="ViewModel"></vm:PlaatsMeldingViewModel>
+    </Page.DataContext>
 
-    <Grid>
-
-    </Grid>
+    <ScrollViewer>
+        <Grid
+        VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock 
+                Grid.Column="0"
+                Grid.Row="0"
+                Text="Stuur een melding"
+                FontSize="30" 
+                Margin="10" 
+                TextAlignment="Center"/>
+            <TextBox 
+                Grid.Column="0"
+                Grid.Row="1"
+                x:Name="MeldingText"
+                PlaceholderText="Melding..."
+                Margin="10"
+                Width="250"/>
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button
+                x:Name="StuurButtonNaarIedereen"
+                Content="Stuur naar alle passagiers"
+                Background="DodgerBlue"
+                Click="StuurButtonNaarIedereen_Click"
+                Foreground="White"
+                Margin="6"
+                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button 
+                x:Name="StuurButton"
+                Content="Stuur"
+                Background="DodgerBlue"
+                Click="StuurButton_Click"
+                Foreground="White" 
+                HorizontalAlignment="Center"
+                Margin="6"/>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
 </Page>
