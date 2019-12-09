@@ -41,7 +41,6 @@ namespace OnBoardFlightApp.Views
 
         private async void BestelButton_Click(object sender, RoutedEventArgs e)
         {
-            var i = comboBoxOpties.SelectedIndex;
             await ViewModel.Post();
             Frame.Navigate(typeof(MijnBestellingen));
         }

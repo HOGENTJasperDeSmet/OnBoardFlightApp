@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,6 +26,35 @@ namespace OnBoardFlightApp.Views.Personeel
         public VeranderZetel()
         {
             this.InitializeComponent();
+            GetZetels();
+
+        }
+
+        private async void GetZetels()
+        {
+            var zetels = await ViewModel.GetZetels();
+            zetelBox1.ItemsSource = zetels;
+            zetelBox2.ItemsSource = zetels;
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var id1 = zetelBox1.SelectedIndex + 1;
+            var id2 = zetelBox2.SelectedIndex + 1;
+            ViewModel.VeranderZetel(id1, id2);
+            Refresh();
+        }
+
+        private async void Refresh()
+        {
+            await Task.Delay(1000);
+            Frame.Navigate(typeof(VeranderZetel));
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            ViewModel.Token = e.Parameter as string;
         }
     }
 }

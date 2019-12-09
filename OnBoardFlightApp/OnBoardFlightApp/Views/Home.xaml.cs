@@ -26,24 +26,17 @@ namespace OnBoardFlightApp
     /// </summary>
     public sealed partial class Home : Page
     {
-        private Flight Flight;
 
         public Home()
         {
-            Flight = new Flight() { Naam = "..."};
-            getFlightAsync();
+
             this.InitializeComponent();
         }
 
-        private async void getFlightAsync()
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            HttpClient client = new HttpClient();
-            var json = await client.GetStringAsync(new Uri("http://localhost:5000/api/Flight/1"));
-            var lst = JsonConvert.DeserializeObject<Flight>(json);
-            Flight.Bestemming = lst.Bestemming;
-            Flight.DuurInUren = lst.DuurInUren;
-            Flight.Origine = lst.Origine;
-            Flight.Naam = lst.Naam;
+            var zetel = e.Parameter as Zetel;
+            ViewModel.SetZetel(zetel);
         }
     }
 }
