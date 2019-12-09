@@ -82,6 +82,9 @@ namespace OnBoardFlightApp
                 case "Bestelling":
                     contentFrame.Navigate(typeof(PlaatsBestelling));
                     break;
+                case "Chat":
+                    contentFrame.Navigate(typeof(Groepschat), MainPageViewModel.Zetel);
+                    break;
 
             }
         }
