@@ -25,10 +25,9 @@ namespace OnBoardFlightApp.ViewModel
         {
             HttpClient client = new HttpClient();
             var json = await client.GetStringAsync(new Uri("http://localhost:5000/api/Groepschat/Groepschat/1"));
-           GroepsChat jsongroepschat = JsonConvert.DeserializeObject<GroepsChat>(json);
-            g1.Naam = jsongroepschat.Naam;
-            g1.Passagiers = jsongroepschat.Passagiers;
-            g1.ChatBerichten = jsongroepschat.ChatBerichten;
+           var chat = JsonConvert.DeserializeObject<GroepsChat>(json);
+            g1 = new GroepsChat(chat.Naam, chat.Passagiers, chat.ChatBerichten);
+            var tst = g1.ChatBerichten;
         }
     }
 }

@@ -24,17 +24,17 @@
             <ScrollViewer Grid.Row="2" VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto">
                 <Grid Margin="0,10,0,0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto" MinWidth="265.6"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.ColumnSpan="2" Style="{StaticResource BaseTextBlockStyle}" TextWrapping="Wrap">Enter a message to send:</TextBlock>
-                    <TextBox x:Name="MessageTextBox" Grid.Column="0" Grid.Row="1" Margin="0,10,10,0"/>
-                    <Button x:Name="SendButton" Grid.Column="1" Grid.Row="1" Margin="0,10,10,0" Click="SendButton_Click"/>
+                    <TextBlock Grid.ColumnSpan="2" Style="{StaticResource BaseTextBlockStyle}" TextWrapping="Wrap" Margin="0,0,0,0">Enter a message to send:</TextBlock>
+                    <TextBox x:Name="MessageTextBox" Grid.Column="0" Grid.Row="1" Margin="0,10,10.4,0.4"/>
+                    <Button x:Name="SendButton" Grid.Column="1" Grid.Row="1" Margin="53.6,0,0,0" Click="SendButton_Click" HorizontalAlignment="Left" Height="33" VerticalAlignment="Center" Width="300">Send</Button>
                     <ListBox x:Name="ConversationListBox" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Top" Height="911" Margin="0,9.6,0,0" 
                              ScrollViewer.HorizontalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
                 </Grid>

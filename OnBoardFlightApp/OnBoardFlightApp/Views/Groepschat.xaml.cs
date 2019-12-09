@@ -28,10 +28,10 @@ namespace OnBoardFlightApp.Views
         {
             this.InitializeComponent();
             GroepschatModel = new GroepsChatViewModel();
-            foreach (var item in GroepschatModel.Groepschat.ChatBerichten)
+            foreach (var item in GroepschatModel.g1.ChatBerichten)
             {
                 ListBoxItem itm = new ListBoxItem();
-                itm.Content = item.inhoud;
+                itm.Content = item.passagier.Naam +": " + item.inhoud;
                 ConversationListBox.Items.Add(itm);
             }
         }

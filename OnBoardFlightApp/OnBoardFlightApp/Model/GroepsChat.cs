@@ -36,15 +36,15 @@ namespace OnBoardFlightApp.Model
 
         public GroepsChat()
         {
-            this.naam = "lege chat";
-            passagiers = new List<Passagier>();
-            chatberichten = new List<ChatBericht>();
+            Naam = naam;
+            Passagiers = new List<Passagier>();
+            ChatBerichten = new List<ChatBericht>();
         }
-        public GroepsChat(string naam)
+        public GroepsChat(string naam, List<Passagier> passagiers, List<ChatBericht> chatberichten)
         {
-            this.naam = naam;
-            passagiers = new List<Passagier>();
-            chatberichten = new List<ChatBericht>();
+            Naam = naam;
+            Passagiers = passagiers;
+            ChatBerichten = chatberichten;
         }
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged([CallerMemberName]string propertyName = "")
