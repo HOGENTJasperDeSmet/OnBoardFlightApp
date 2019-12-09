@@ -1,4 +1,5 @@
-﻿using OnBoardFlightApp.Views;
+﻿using OnBoardFlightApp.Model;
+using OnBoardFlightApp.Views;
 using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -13,7 +14,12 @@ namespace OnBoardFlightApp
         public MainPage()
         {
             this.InitializeComponent();
-            contentFrame.Navigate(typeof(Home));
+            Load();
+            
+        }
+        public async void Load()
+        {
+            contentFrame.Navigate(typeof(Home), await MainPageViewModel.GetZetel(1));
         }
         private void nvSample_Loaded(object sender, RoutedEventArgs e)
         {
@@ -49,7 +55,7 @@ namespace OnBoardFlightApp
             {
 
                 case "Home":
-                    contentFrame.Navigate(typeof(Home));
+                    contentFrame.Navigate(typeof(Home), MainPageViewModel.Zetel);
                     break;
 
                 case "Melding":

@@ -5,22 +5,27 @@
     xmlns:local="using:OnBoardFlightApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vm="using:OnBoardFlightApp.Model"
+    xmlns:vm="using:OnBoardFlightApp.ViewModel"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.DataContext>
-        <vm:Flight></vm:Flight>
+        <vm:HomeViewModel x:Name="ViewModel"></vm:HomeViewModel>
     </Page.DataContext>
     <Grid>
         <StackPanel VerticalAlignment="Center">
-            <TextBlock Text="{x:Bind Flight.Naam, Mode=OneWay}" FontFamily="Arial"  FontSize="24" FontStyle="Italic" TextWrapping="WrapWholeWords"
+            <TextBlock Text="Hallo: " FontFamily="Arial"  FontSize="24" FontStyle="Italic" TextWrapping="WrapWholeWords" CharacterSpacing="200" Foreground="CornflowerBlue" TextAlignment="Center" />
+            <TextBlock Text="{x:Bind ViewModel.Zetel.Passagier.Voornaam}" FontFamily="Arial"  FontSize="24" FontStyle="Italic" CharacterSpacing="200" Foreground="CornflowerBlue" TextAlignment="Center" />
+            <TextBlock Text="{x:Bind ViewModel.Zetel.Passagier.Naam}" FontFamily="Arial"  FontSize="24" FontStyle="Italic" CharacterSpacing="200" Foreground="CornflowerBlue" TextAlignment="Center" />
+            <TextBlock Text="{x:Bind ViewModel.Flight.Naam, Mode=OneWay}" FontFamily="Arial"  FontSize="24" FontStyle="Italic" TextWrapping="WrapWholeWords"
     CharacterSpacing="200" Foreground="CornflowerBlue" TextAlignment="Center" />
             <Image Height="400" HorizontalAlignment="Stretch" Margin="0,0,0,0">
             <Image.Source>
                 <BitmapImage UriSource="/Assets/Img/vliegtuig.jpg"/>
             </Image.Source>
         </Image>
-            <TextBlock Text="Zetelnr: ..." FontFamily="Arial"  FontSize="24" FontStyle="Italic" TextWrapping="WrapWholeWords"
+            <TextBlock Text="Zetelnr: " FontFamily="Arial"  FontSize="24" FontStyle="Italic" TextWrapping="WrapWholeWords"
+    CharacterSpacing="200" Foreground="CornflowerBlue" TextAlignment="Center" />
+            <TextBlock Text="{x:Bind ViewModel.Zetel.GetZetel}" FontFamily="Arial"  FontSize="24" FontStyle="Italic" TextWrapping="WrapWholeWords"
     CharacterSpacing="200" Foreground="CornflowerBlue" TextAlignment="Center" />
         </StackPanel>
 

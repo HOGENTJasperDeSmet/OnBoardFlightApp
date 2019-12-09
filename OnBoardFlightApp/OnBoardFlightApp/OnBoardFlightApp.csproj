@@ -126,12 +126,15 @@
     <Compile Include="Model\Melding.cs" />
     <Compile Include="Model\Passagier.cs" />
     <Compile Include="Model\Zetel.cs" />
+    <Compile Include="ViewModel\HomeViewModel.cs" />
+    <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="ViewModel\MeldingViewModel.cs" />
     <Compile Include="ViewModel\PersoneelBestellingViewModel.cs" />
     <Compile Include="ViewModel\BestellingViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\PlaatsMeldingViewModel.cs" />
     <Compile Include="ViewModel\PlaatsBestellingViewModel.cs" />
+    <Compile Include="ViewModel\VeranderZetelViewModel.cs" />
     <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>

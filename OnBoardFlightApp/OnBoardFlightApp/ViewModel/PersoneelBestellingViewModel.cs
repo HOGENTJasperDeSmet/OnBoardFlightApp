@@ -18,7 +18,8 @@ namespace OnBoardFlightApp.ViewModel
         public string Token { get { return _token; } set {
                 _token = value;
                 GetAll();
-            } }
+            }
+        }
         public HttpClient client;
 
         public PersoneelBestellingViewModel()

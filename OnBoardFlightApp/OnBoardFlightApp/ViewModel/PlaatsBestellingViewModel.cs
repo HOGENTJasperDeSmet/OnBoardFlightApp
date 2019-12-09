@@ -66,12 +66,5 @@ namespace OnBoardFlightApp.ViewModel
 
             return null;
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void RaisePropertyChanged([CallerMemberName]string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
-
 }
