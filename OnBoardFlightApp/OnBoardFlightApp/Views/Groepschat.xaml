@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="OnBoardFlightApp.Views.Groepschat"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OnBoardFlightApp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:OnBoardFlightApp.ViewModel"
+    xmlns:model="using:OnBoardFlightApp.Model"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="Input" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ScrollViewer Grid.Row="2" VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto">
+                <Grid Margin="0,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.ColumnSpan="2" Style="{StaticResource BaseTextBlockStyle}" TextWrapping="Wrap">Enter a message to send:</TextBlock>
+                    <TextBox x:Name="MessageTextBox" Grid.Column="0" Grid.Row="1" Margin="0,10,10,0"/>
+                    <Button x:Name="SendButton" Grid.Column="1" Grid.Row="1" Margin="0,10,10,0" Click="SendButton_Click"/>
+                    <ListBox x:Name="ConversationListBox" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Top" Height="911" Margin="0,9.6,0,0" 
+                             ScrollViewer.HorizontalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>
