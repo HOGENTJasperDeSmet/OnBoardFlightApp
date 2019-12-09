@@ -125,7 +125,11 @@
     <Compile Include="Model\BestellingTK.cs" />
     <Compile Include="Model\Melding.cs" />
     <Compile Include="Model\Passagier.cs" />
+    <Compile Include="Model\Weather.cs" />
     <Compile Include="Model\Zetel.cs" />
+    <Compile Include="Services\WeatherService.cs" />
+    <Compile Include="ViewModel\HomeViewModel.cs" />
+    <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="ViewModel\MeldingViewModel.cs" />
     <Compile Include="ViewModel\PersoneelBestellingViewModel.cs" />
     <Compile Include="Model\SplashPage.cs" />
@@ -135,6 +139,7 @@
     <Compile Include="ViewModel\PlaatsMeldingViewModel.cs" />
     <Compile Include="ViewModel\PlaatsBestellingViewModel.cs" />
     <Compile Include="ViewModel\SplashScreenViewModel.cs" />
+    <Compile Include="ViewModel\VeranderZetelViewModel.cs" />
     <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -208,6 +213,7 @@
     <Content Include="Assets\DummyMP4\hangover.mp4" />
     <Content Include="Assets\DummyMP4\thesocialnetwork.mp4" />
     <Content Include="Assets\DummyMP4\zombieland.mp4" />
+    <Content Include="Assets\flight-route.png" />
     <Content Include="Assets\Img\vliegtuig.jpg" />
     <Content Include="Assets\Weather\01d.png" />
     <Content Include="Assets\Weather\01n.png" />

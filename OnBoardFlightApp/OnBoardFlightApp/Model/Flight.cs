@@ -44,7 +44,7 @@ namespace OnBoardFlightApp.Model
             set
             {
                 bestemming = value;
-                RaisePropertyChanged("Bestemming");
+                RaisePropertyChanged(nameof(Bestemming));
             }
         }
         private int duurInUren;
