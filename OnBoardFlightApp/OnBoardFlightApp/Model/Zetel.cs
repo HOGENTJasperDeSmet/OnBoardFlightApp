@@ -71,7 +71,6 @@ namespace OnBoardFlightApp.Model
                 return _rij.ToString() + _stoel.ToString();
             }
         }
-
         public Zetel(int rij, char stoel, string klasse)
         {
             this.Rij = rij;
