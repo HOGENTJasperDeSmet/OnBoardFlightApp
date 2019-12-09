@@ -1,20 +1,19 @@
 ﻿<Page
-    x:Class="OnBoardFlightApp.Views.MijnBestellingen"
+    x:Class="OnBoardFlightApp.Views.Personeel.Bestellingen"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:OnBoardFlightApp.Views"
+    xmlns:local="using:OnBoardFlightApp.Views.Personeel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:OnBoardFlightApp.ViewModel"
-    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:model="using:OnBoardFlightApp.Model"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.DataContext>
-        <vm:BestellingViewModel x:Name="ViewModel"/>
+        <vm:PersoneelBestellingViewModel x:Name="ViewModel"/>
     </Page.DataContext>
 
-    <ListView Name="Bestellingen" ItemsSource="{x:Bind ViewModel.Bestellingen, Mode=OneWay}">
+    <ListView Name="AlleBestellingen" ItemsSource="{x:Bind ViewModel.AlleBestellingen, Mode=OneWay}">
         <ListView.HeaderTemplate>
             <DataTemplate x:DataType="model:Bestelling">
                 <StackPanel BorderThickness="0,0,0,1" BorderBrush="Black" Orientation="Horizontal">
@@ -27,7 +26,7 @@
             </DataTemplate>
         </ListView.HeaderTemplate>
         <ListView.ItemTemplate>
-            <DataTemplate x:DataType="model:Bestelling">
+            <DataTemplate x:DataType="model:BestellingObjectVoorPersoneel">
                 <StackPanel BorderThickness="0,0,0,1" BorderBrush="Black" Orientation="Horizontal">
                     <TextBlock Margin="0 15 85 0" Text="{x:Bind Id}"></TextBlock>
                     <ListView Name="BestellingOpties" ItemsSource="{x:Bind BestellingTKs, Mode=OneWay}">
@@ -44,7 +43,7 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <TextBlock Margin="15" Text="{x:Bind AfgehandeldString}" FontSize="15"/>
+                    <CheckBox Margin="15" IsChecked="{x:Bind Afgehandeld, Mode=TwoWay}"></CheckBox>
                 </StackPanel>
             </DataTemplate>
         </ListView.ItemTemplate>

@@ -23,5 +23,10 @@ namespace OnBoardFlightApp.Model
             this.Klasse = klasse;
         }
         public Zetel() { }
+=======
+    class Zetel
+    {
+
+>>>>>>> ff3dfeb6c55ffdd2db01f09b8dfc8ce881a4ada5
     }
 }

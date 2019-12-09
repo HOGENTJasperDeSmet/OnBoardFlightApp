@@ -120,10 +120,17 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Bestelling.cs" />
+    <Compile Include="Model\BestellingObjectVoorPersoneel.cs" />
     <Compile Include="Model\BestellingOptie.cs" />
     <Compile Include="Model\BestellingTK.cs" />
+    <Compile Include="Model\Melding.cs" />
+    <Compile Include="Model\Passagier.cs" />
+    <Compile Include="Model\Zetel.cs" />
+    <Compile Include="ViewModel\MeldingViewModel.cs" />
+    <Compile Include="ViewModel\PersoneelBestellingViewModel.cs" />
     <Compile Include="ViewModel\BestellingViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\PlaatsMeldingViewModel.cs" />
     <Compile Include="ViewModel\PlaatsBestellingViewModel.cs" />
     <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
@@ -133,7 +140,13 @@
       <DependentUpon>Info.xaml</DependentUpon>
     </Compile>
     <Compile Include="LocationManager.cs" />
-    <Compile Include="Views\LoginPersoneel.xaml.cs">
+    <Compile Include="Views\Meldingen.xaml.cs">
+      <DependentUpon>Meldingen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personeel\Bestellingen.xaml.cs">
+      <DependentUpon>Bestellingen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personeel\LoginPersoneel.xaml.cs">
       <DependentUpon>LoginPersoneel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
@@ -153,6 +166,15 @@
       <DependentUpon>Music.xaml</DependentUpon>
     </Compile>
     <Compile Include="OpeanWeatherMapProxy.cs" />
+    <Compile Include="Views\Personeel\MainPagePersoneel.xaml.cs">
+      <DependentUpon>MainPagePersoneel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personeel\StuurMelding.xaml.cs">
+      <DependentUpon>StuurMelding.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personeel\VeranderZetel.xaml.cs">
+      <DependentUpon>VeranderZetel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PlaatsBestelling.xaml.cs">
       <DependentUpon>PlaatsBestelling.xaml</DependentUpon>
     </Compile>
@@ -221,7 +243,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\LoginPersoneel.xaml">
+    <Page Include="Views\Meldingen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Personeel\Bestellingen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Personeel\LoginPersoneel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -238,6 +268,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Music.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Personeel\MainPagePersoneel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Personeel\StuurMelding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Personeel\VeranderZetel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -34,3 +34,11 @@ namespace OnBoardFlightApp.Model
 }
 
 
+=======
+    class Passagier
+    {
+        public int Id { get; set; }
+        public Zetel Zetel { get; set; }
+    }
+}
+>>>>>>> ff3dfeb6c55ffdd2db01f09b8dfc8ce881a4ada5
