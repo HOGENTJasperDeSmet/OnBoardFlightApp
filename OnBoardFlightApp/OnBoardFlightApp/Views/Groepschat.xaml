@@ -9,36 +9,28 @@
     xmlns:model="using:OnBoardFlightApp.Model"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <vm:GroepsChatViewModel x:Name="ViewModel"/>
+    </Page.DataContext>
 
-    <Grid x:Name="LayoutRoot" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid x:Name="Input" Grid.Row="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <ScrollViewer Grid.Row="2" VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto">
-                <Grid Margin="0,10,0,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="Auto" MinWidth="265.6"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.ColumnSpan="2" Style="{StaticResource BaseTextBlockStyle}" TextWrapping="Wrap" Margin="0,0,0,0">Enter a message to send:</TextBlock>
-                    <TextBox x:Name="MessageTextBox" Grid.Column="0" Grid.Row="1" Margin="0,10,10.4,0.4"/>
-                    <Button x:Name="SendButton" Grid.Column="1" Grid.Row="1" Margin="53.6,0,0,0" Click="SendButton_Click" HorizontalAlignment="Left" Height="33" VerticalAlignment="Center" Width="300">Send</Button>
-                    <ListBox x:Name="ConversationListBox" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Top" Height="911" Margin="0,9.6,0,0" 
-                             ScrollViewer.HorizontalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
-                </Grid>
-            </ScrollViewer>
-        </Grid>
-    </Grid>
+    <ScrollViewer VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto">
+        <ListView Name="Berichten" ItemsSource="{x:Bind ViewModel.ChatBerichten, Mode=OneWay}">
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" TextWrapping="Wrap" Margin="15">Enter a message to send:</TextBlock>
+                        <TextBox x:Name="MessageTextBox" Margin="15"/>
+                        <Button x:Name="SendButton" Margin="53.6,0,0,0" Click="SendButton_Click" HorizontalAlignment="Left" Height="33" VerticalAlignment="Center" Width="300">Send</Button>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="model:ChatBericht">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Bind inhoud}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollViewer>
 </Page>

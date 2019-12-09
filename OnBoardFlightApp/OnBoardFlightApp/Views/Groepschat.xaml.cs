@@ -1,4 +1,5 @@
-﻿using OnBoardFlightApp.ViewModel;
+﻿using OnBoardFlightApp.Model;
+using OnBoardFlightApp.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,21 +23,18 @@ namespace OnBoardFlightApp.Views
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class Groepschat : Page
-    {
-        private GroepsChatViewModel GroepschatModel { get; set; }
+    { 
         public Groepschat()
         {
             this.InitializeComponent();
-            GroepschatModel = new GroepsChatViewModel();
-            foreach (var item in GroepschatModel.g1.ChatBerichten)
-            {
-                ListBoxItem itm = new ListBoxItem();
-                itm.Content = item.passagier.Naam +": " + item.inhoud;
-                ConversationListBox.Items.Add(itm);
-            }
         }
         public void SendButton_Click(object sender, RoutedEventArgs e)
         {
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var zetel = e.Parameter as Zetel;
+            ViewModel.SetZetel(zetel);
         }
     }
 }
