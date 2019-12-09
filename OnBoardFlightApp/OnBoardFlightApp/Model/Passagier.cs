@@ -9,12 +9,7 @@ using System.Threading.Tasks;
 
 namespace OnBoardFlightApp.Model
 {
-<<<<<<< HEAD
-
-   public class Passagier
-=======
     public class Passagier : INotifyPropertyChanged
->>>>>>> 0f0314a5fb73c2b980f665ddcf9f83e9fbea6e5f
     {
         public int Id { get; set; }
         private string _voornaam;

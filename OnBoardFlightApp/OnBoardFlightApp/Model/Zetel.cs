@@ -8,17 +8,6 @@ using System.Threading.Tasks;
 
 namespace OnBoardFlightApp.Model
 {
-<<<<<<< HEAD
-    public class Zetel
-    {
-        public int Id { get; set; }
-        public int Rij { get; set; }
-        public char Stoel { get; set; }
-        public string Klasse { get; set; }
-        public Passagier Passagier { get; set; }
-        public int PassagierKey { get; set; }
-
-=======
     public class Zetel: INotifyPropertyChanged
     {
         public int Id { get; set; }
@@ -82,23 +71,11 @@ namespace OnBoardFlightApp.Model
                 return _rij.ToString() + _stoel.ToString();
             }
         }
->>>>>>> 0f0314a5fb73c2b980f665ddcf9f83e9fbea6e5f
-
-        public Zetel(int rij, char stoel, string klasse)
-        {
-            this.Rij = rij;
-            this.Stoel = stoel;
-            this.Klasse = klasse;
-        }
-        public Zetel() { }
-<<<<<<< HEAD
-=======
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged([CallerMemberName]string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
->>>>>>> 0f0314a5fb73c2b980f665ddcf9f83e9fbea6e5f
     }
 }
