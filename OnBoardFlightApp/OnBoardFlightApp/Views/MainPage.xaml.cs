@@ -14,6 +14,7 @@ namespace OnBoardFlightApp
         {
             this.InitializeComponent();
             contentFrame.Navigate(typeof(Home));
+            
         }
         private void nvSample_Loaded(object sender, RoutedEventArgs e)
         {

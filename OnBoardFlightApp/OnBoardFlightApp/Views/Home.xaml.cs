@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using OnBoardFlightApp.Model;
+using OnBoardFlightApp.Services;
 using OnBoardFlightApp.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -30,20 +31,9 @@ namespace OnBoardFlightApp
 
         public Home()
         {
-            Flight = new Flight() { Naam = "..."};
-            getFlightAsync();
+            FlightService flightService = FlightService.Instance;
+            Flight = flightService.Flight;
             this.InitializeComponent();
-        }
-
-        private async void getFlightAsync()
-        {
-            HttpClient client = new HttpClient();
-            var json = await client.GetStringAsync(new Uri("http://localhost:5000/api/Flight/1"));
-            var lst = JsonConvert.DeserializeObject<Flight>(json);
-            Flight.Bestemming = lst.Bestemming;
-            Flight.DuurInUren = lst.DuurInUren;
-            Flight.Origine = lst.Origine;
-            Flight.Naam = lst.Naam;
         }
     }
 }

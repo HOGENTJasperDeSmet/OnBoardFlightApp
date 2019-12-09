@@ -1,0 +1,19 @@
+﻿<Page PointerPressed="Page_PointerPressed" x:Name="Page"
+    x:Class="OnBoardFlightApp.SplashScreen"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OnBoardFlightApp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:OnBoardFlightApp.Model"
+      mc:Ignorable="d">
+    <Page.Background>
+        <ImageBrush Stretch="UniformToFill" ImageSource="{x:Bind splashScreenViewModel.SplashPage.Image, Mode=OneWay}" />
+    </Page.Background>
+
+    <RelativePanel>
+        <TextBlock FontSize="120"  FontFamily="Segoe UI" Foreground="White"  Margin="0 0 8 -15" RelativePanel.LeftOf="weather"  RelativePanel.Above="welcome_text" TextWrapping="Wrap" >18°</TextBlock>
+        <Image Source="/Assets/Weather/02d.png" Name="weather" Width="120" RelativePanel.Above="welcome_text" RelativePanel.AlignRightWith="welcome_text" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,32,0"/>
+        <TextBlock x:Name="welcome_text" Text="{x:Bind splashScreenViewModel.Flight.Naam}" TextAlignment="Right" RelativePanel.AlignRightWithPanel="True"  RelativePanel.AlignBottomWithPanel="True" FontSize="80"  FontFamily="Segoe UI" Foreground="White" TextWrapping="Wrap" Margin="0,0,32,32"/>
+    </RelativePanel>
+</Page>
