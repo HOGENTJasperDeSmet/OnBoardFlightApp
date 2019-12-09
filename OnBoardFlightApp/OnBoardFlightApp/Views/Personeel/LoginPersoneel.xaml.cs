@@ -1,4 +1,4 @@
-﻿using OnBoardFlightApp.ViewModel;
+﻿using OnBoardFlightApp.Views.Personeel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -21,11 +22,28 @@ namespace OnBoardFlightApp.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MijnBestellingen : Page
+    public sealed partial class LoginPersoneel : Page
     {
-        public MijnBestellingen()
+        public LoginPersoneel()
         {
             this.InitializeComponent();
+        }
+
+        private async void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            var email = UsernameTextBox.Text;
+            var wachtwoord = PasswordTextBox.Password;
+            var token = await ViewModel.Login(email, wachtwoord);
+
+            if(token != null && token != "")
+            {
+                var frame = Window.Current.Content as Frame;
+                frame.Navigate(typeof(MainPagePersoneel), token);
+            }
+            else
+            {
+                await new MessageDialog("Foute login!").ShowAsync();
+            }
         }
     }
 }

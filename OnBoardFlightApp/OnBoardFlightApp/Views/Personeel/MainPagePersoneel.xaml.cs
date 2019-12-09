@@ -1,20 +1,25 @@
 ﻿using OnBoardFlightApp.Views;
+using OnBoardFlightApp.Views.Personeel;
 using System.Linq;
+using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
 namespace OnBoardFlightApp
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPagePersoneel : Page
     {
-        public MainPage()
+        public string Token { get; set; }
+
+        public MainPagePersoneel()
         {
+            //Token = token;
             this.InitializeComponent();
-            contentFrame.Navigate(typeof(Home));
-            
         }
         private void nvSample_Loaded(object sender, RoutedEventArgs e)
         {
@@ -48,37 +53,25 @@ namespace OnBoardFlightApp
         {
             switch (item.Tag)
             {
-
-                case "Home":
-                    contentFrame.Navigate(typeof(Home));
+                case "Bestellingen":
+                    contentFrame.Navigate(typeof(Bestellingen), Token);
                     break;
-
                 case "Melding":
-                    contentFrame.Navigate(typeof(Meldingen));
+                    contentFrame.Navigate(typeof(StuurMelding), Token);
                     break;
-
-                case "Info":
-                     contentFrame.Navigate(typeof(Info));
-                    break;
-
-                case "Movie":
-                    contentFrame.Navigate(typeof(Movies));
-                    break;
-
-                case "MoviePlay":
-                    contentFrame.Navigate(typeof(PlayMovie));
-                    break;
-                case "Music":
-                    contentFrame.Navigate(typeof(Music));
-                    break;
-                case "Overzicht":
-                    contentFrame.Navigate(typeof(MijnBestellingen));
-                    break;
-                case "Bestelling":
-                    contentFrame.Navigate(typeof(PlaatsBestelling));
-                    break;
-
             }
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Token = e.Parameter as string;
+            contentFrame.Navigate(typeof(Bestellingen), Token);
+        }
+
+        private void NvSample_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(MainPage));
         }
     }
 }

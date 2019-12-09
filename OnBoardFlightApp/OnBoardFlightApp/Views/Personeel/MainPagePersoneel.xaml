@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="OnBoardFlightApp.MainPagePersoneel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OnBoardFlightApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <NavigationView x:Name="nvSample"
+                        Loaded="nvSample_Loaded"
+                        Margin="0,12,0,0"              
+                        ItemInvoked="nvSample_ItemInvoked"
+                        IsBackEnabled="True"
+                        BackRequested="NvSample_BackRequested">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Icon="Bookmarks" Content="Bestellingen" Tag="Bestellingen" />
+                <NavigationViewItem Icon="Sync" Content="Verzet passagier" Tag="Verzet" />
+                <NavigationViewItem Icon="PostUpdate" Content="Stuur melding" Tag="Melding" />
+            </NavigationView.MenuItems>
+            <Frame x:Name="contentFrame"/>
+        </NavigationView>
+    </Grid>
+</Page>
