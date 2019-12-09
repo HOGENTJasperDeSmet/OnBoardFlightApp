@@ -27,13 +27,17 @@ namespace OnBoardFlightApp
     /// </summary>
     public sealed partial class Home : Page
     {
-        private Flight Flight;
 
         public Home()
         {
-            FlightService flightService = FlightService.Instance;
-            Flight = flightService.Flight;
+
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var zetel = e.Parameter as Zetel;
+            ViewModel.SetZetel(zetel);
         }
     }
 }

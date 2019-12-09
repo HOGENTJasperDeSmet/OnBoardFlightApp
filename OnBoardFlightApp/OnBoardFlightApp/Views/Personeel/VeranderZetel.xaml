@@ -5,10 +5,42 @@
     xmlns:local="using:OnBoardFlightApp.Views.Personeel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:OnBoardFlightApp.ViewModel"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <Grid>
-
-    </Grid>
+    <Page.DataContext>
+        <vm:VeranderZetelViewModel x:Name="ViewModel"></vm:VeranderZetelViewModel>
+    </Page.DataContext>
+    
+    <ScrollViewer>
+        <StackPanel
+		HorizontalAlignment="Center"
+		VerticalAlignment="Center"
+		Margin="10"
+		MinWidth="600">
+            <ComboBox 
+                Width="300" 
+                Margin="20"
+                x:Name="zetelBox1" 
+                Header="Zetel 1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            </ComboBox>
+            <ComboBox 
+                Width="300" 
+                Margin="20"
+                x:Name="zetelBox2" 
+                Header="Zetel 2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            </ComboBox>
+            <Button
+                Margin="10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="Button_Click">
+                Verander van plaats
+            </Button>
+        </StackPanel>
+    </ScrollViewer>
 </Page>

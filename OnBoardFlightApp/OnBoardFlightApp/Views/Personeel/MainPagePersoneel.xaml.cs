@@ -56,6 +56,9 @@ namespace OnBoardFlightApp
                 case "Bestellingen":
                     contentFrame.Navigate(typeof(Bestellingen), Token);
                     break;
+                case "Verzet":
+                    contentFrame.Navigate(typeof(VeranderZetel), Token);
+                    break;
                 case "Melding":
                     contentFrame.Navigate(typeof(StuurMelding), Token);
                     break;

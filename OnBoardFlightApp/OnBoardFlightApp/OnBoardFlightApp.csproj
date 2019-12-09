@@ -123,13 +123,13 @@
     <Compile Include="Model\BestellingObjectVoorPersoneel.cs" />
     <Compile Include="Model\BestellingOptie.cs" />
     <Compile Include="Model\BestellingTK.cs" />
-    <Compile Include="Model\SplashPage.cs" />
-    <Compile Include="Services\FlightService.cs" />
     <Compile Include="Model\Melding.cs" />
     <Compile Include="Model\Passagier.cs" />
     <Compile Include="Model\Zetel.cs" />
     <Compile Include="ViewModel\MeldingViewModel.cs" />
     <Compile Include="ViewModel\PersoneelBestellingViewModel.cs" />
+    <Compile Include="Model\SplashPage.cs" />
+    <Compile Include="Services\FlightService.cs" />
     <Compile Include="ViewModel\BestellingViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\PlaatsMeldingViewModel.cs" />
