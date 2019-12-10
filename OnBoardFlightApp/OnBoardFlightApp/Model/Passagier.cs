@@ -34,6 +34,19 @@ namespace OnBoardFlightApp.Model
                 RaisePropertyChanged("Naam");
             }
         }
+        private GroepsChat _groepschat;
+        public GroepsChat Groepschat
+        {
+            get
+            {
+                return _groepschat;
+            }
+            set
+            {
+                _groepschat = value;
+                RaisePropertyChanged("Groepschat");
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged([CallerMemberName]string propertyName = "")

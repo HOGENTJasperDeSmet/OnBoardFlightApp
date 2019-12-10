@@ -14,13 +14,13 @@
     </Page.DataContext>
 
     <ScrollViewer VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto">
-        <ListView Name="Berichten" ItemsSource="{x:Bind ViewModel.ChatBerichten, Mode=OneWay}">
+        <ListView Name="Berichten" ItemsSource="{x:Bind ViewModel.ChatBerichten, Mode=OneWay}" SelectionChanged="Berichten_SelectionChanged">
             <ListView.HeaderTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
-                        <TextBlock Style="{StaticResource BaseTextBlockStyle}" TextWrapping="Wrap" Margin="15">Enter a message to send:</TextBlock>
-                        <TextBox x:Name="MessageTextBox" Margin="15"/>
-                        <Button x:Name="SendButton" Margin="53.6,0,0,0" Click="SendButton_Click" HorizontalAlignment="Left" Height="33" VerticalAlignment="Center" Width="300">Send</Button>
+                        <TextBlock Name="SendMessageTextBox" Style="{StaticResource BaseTextBlockStyle}" TextWrapping="Wrap" Margin="15" HorizontalAlignment="Stretch">Enter a message to send:</TextBlock>
+                        <TextBox Name="MessageTextBox" Width="400px" HorizontalAlignment="Left"/>
+                        <Button x:Name="SendButton" Click="SendButton_Click" Height="33" VerticalAlignment="Center" Width="300">Send</Button>
                     </StackPanel>
                 </DataTemplate>
             </ListView.HeaderTemplate>

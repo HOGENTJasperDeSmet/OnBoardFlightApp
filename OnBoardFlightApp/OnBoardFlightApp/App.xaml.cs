@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using OnBoardFlightApp.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -23,6 +27,7 @@ namespace OnBoardFlightApp
     /// </summary>
     sealed partial class App : Application
     {
+        public Zetel Zetel;
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -30,11 +35,17 @@ namespace OnBoardFlightApp
         public App()
         {
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
-        
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            GetZetel(1);
         }
-
+        public async void GetZetel(int id)
+        {
+                HttpClient Client = new HttpClient();
+                var json = await Client.GetStringAsync("http://localhost:5000/api/Flight/zetels/"+ id);
+                var zetel = JsonConvert.DeserializeObject<Zetel>(json);
+                Zetel = zetel;     
+        }
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
         /// will be used such as when the application is launched to open a specific file.

@@ -30,11 +30,16 @@ namespace OnBoardFlightApp.Views
         }
         public void SendButton_Click(object sender, RoutedEventArgs e)
         {
+           //atBericht c = new ChatBericht(passagier, DateTime.Now, MessageTextBox.Text);
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var zetel = e.Parameter as Zetel;
-            ViewModel.SetZetel(zetel);
+            Zetel zetel = ((App)Application.Current).Zetel;
+           Passagier p1 = zetel.Passagier;
+        }
+
+        private void Berichten_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
         }
     }
 }
