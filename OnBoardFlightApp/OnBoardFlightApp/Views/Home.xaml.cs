@@ -32,6 +32,9 @@ namespace OnBoardFlightApp
         {
 
             this.InitializeComponent();
+            map.Style = Windows.UI.Xaml.Controls.Maps.MapStyle.Aerial3DWithRoads;
+            map.MapProjection = Windows.UI.Xaml.Controls.Maps.MapProjection.Globe;
+            map.ZoomLevel = 4;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

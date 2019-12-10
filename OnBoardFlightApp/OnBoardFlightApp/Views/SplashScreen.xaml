@@ -16,8 +16,8 @@
         <TextBlock x:Name="Clock"  FontSize="78"  FontFamily="Segoe UI" Foreground="White" RelativePanel.Below="welcomeText" Margin="64,-20,0,0"/>
 
         <TextBlock FontSize="80"  FontFamily="Helvetica" Foreground="White" Text="{x:Bind splashScreenViewModel.WeatherOrigin.Temperatuur, Mode=OneWay}"   Margin="0 0 8 -20" RelativePanel.LeftOf="weatherOrgine"  RelativePanel.Above="orgine" TextWrapping="Wrap" />
-        <Image Name="weatherOrgine" Source="{x:Bind splashScreenViewModel.WeatherOrigin.Icon, Mode=OneWay}" Width="80" RelativePanel.Above="orgine" RelativePanel.AlignRightWith="orgine" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,300,0"/>
-        <TextBlock x:Name="orgine" Text="{x:Bind splashScreenViewModel.Flight.Origine.Naam, Mode=OneWay}" TextAlignment="Right" RelativePanel.LeftOf="weatherBestemming"  RelativePanel.AlignBottomWithPanel="True" FontSize="48"  FontFamily="Helvetica" Foreground="White" TextWrapping="Wrap" Margin="0,0,300,96"/>
+        <Image Name="weatherOrgine" Source="{x:Bind splashScreenViewModel.WeatherOrigin.Icon, Mode=OneWay}" Width="80" RelativePanel.Above="orgine" RelativePanel.AlignRightWith="orgine" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,200,0"/>
+        <TextBlock x:Name="orgine" Text="{x:Bind splashScreenViewModel.Flight.Origine.Naam, Mode=OneWay}" TextAlignment="Right" RelativePanel.LeftOf="weatherBestemming"  RelativePanel.AlignBottomWithPanel="True" FontSize="48"  FontFamily="Helvetica" Foreground="White" TextWrapping="Wrap" Margin="0,0,200,96"/>
         
         <TextBlock FontSize="120"  FontFamily="Helvetica" Foreground="White" Text="{x:Bind splashScreenViewModel.WeatherBestemming.Temperatuur, Mode=OneWay}"   Margin="0 0 8 -30" RelativePanel.LeftOf="weatherBestemming"  RelativePanel.Above="besteming" TextWrapping="Wrap" />
         <Image Name="weatherBestemming" Source="{x:Bind splashScreenViewModel.WeatherBestemming.Icon, Mode=OneWay}" Width="150" RelativePanel.Above="besteming" RelativePanel.AlignRightWith="besteming" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,96,-15"/>
