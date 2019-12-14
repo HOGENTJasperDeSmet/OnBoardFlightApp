@@ -12,7 +12,7 @@
     </Page.Background>
 
     <RelativePanel>
-        <TextBlock x:Name="welcomeText"  FontSize="120"  FontFamily="Segoe UI" Foreground="White" Margin="64,64,64,0">Welcome <Bold>aboard</Bold></TextBlock>
+        <TextBlock x:Name="welcomeText"  FontSize="120"  FontFamily="Segoe UI" Foreground="White" Margin="64,64,64,0">Welcome <Bold>onboard</Bold></TextBlock>
         <TextBlock x:Name="Clock"  FontSize="78"  FontFamily="Segoe UI" Foreground="White" RelativePanel.Below="welcomeText" Margin="64,-20,0,0"/>
 
         <TextBlock FontSize="80"  FontFamily="Helvetica" Foreground="White" Text="{x:Bind splashScreenViewModel.WeatherOrigin.Temperatuur, Mode=OneWay}"   Margin="0 0 8 -20" RelativePanel.LeftOf="weatherOrgine"  RelativePanel.Above="orgine" TextWrapping="Wrap" />

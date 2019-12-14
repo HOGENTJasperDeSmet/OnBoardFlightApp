@@ -26,15 +26,7 @@ namespace OnBoardFlightApp.ViewModel
 
         public async void GetChat()
         {
-            HttpClient client = new HttpClient();
-            var json = await client.GetStringAsync(new Uri("http://localhost:5000/api/Groepschat/Groepschat/1"));
-           var chat = JsonConvert.DeserializeObject<GroepsChat>(json);
-            g1 = new GroepsChat(chat.Naam, chat.Passagiers, chat.ChatBerichten);
-            foreach(var i in chat.ChatBerichten)
-            {
-                ChatBerichten.Add(i);
-            }
-            var tst = g1.ChatBerichten;
+            
         }
 
         internal void SetZetel(Zetel zetel)
