@@ -41,9 +41,16 @@ namespace OnBoardFlightApp.ViewModel
             return stringLijst;
         }
 
-        public void VoegOptieToe(int i)
+        public async void VoegOptieToe(int i)
         {
-            BestellingOptiesToegevoegd.Add(BestellingOpties[i]);
+            if(i != -1)
+            {
+                BestellingOptiesToegevoegd.Add(BestellingOpties[i]);
+            }
+            else
+            {
+                await new MessageDialog("Geen optie geselecteerd").ShowAsync();
+            }
         }
 
         public async Task<Bestelling> Post()
