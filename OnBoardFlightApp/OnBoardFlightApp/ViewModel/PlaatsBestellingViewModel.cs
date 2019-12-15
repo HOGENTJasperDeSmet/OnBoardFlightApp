@@ -58,10 +58,13 @@ namespace OnBoardFlightApp.ViewModel
             var bestelling = new { Afgehandeld = false, BestellingOpties = BestellingOptiesToegevoegd };
             try
             {
+                App app = (App)App.Current;
+                app.GetZetel(app.Zetel.Id);
+                var id = app.Zetel.Passagier.Id;
                 var request = new HttpRequestMessage
                 {
                     Method = HttpMethod.Post,
-                    RequestUri = new Uri(Api + "/1"),
+                    RequestUri = new Uri(Api + "/" + id),
                     Content = new StringContent(JsonConvert.SerializeObject(bestelling), Encoding.UTF8, "application/json")
                 };
                 await Client.SendAsync(request); 
