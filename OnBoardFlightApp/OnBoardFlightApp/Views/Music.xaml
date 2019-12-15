@@ -17,12 +17,41 @@
             <ListView Name="lvMusic" IsItemClickEnabled="True" ItemClick="Song_Click" ItemsSource="{Binding Songs}" SelectionChanged="LvSongs_SelectionChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Image HorizontalAlignment="Left" Width="150" Height="150" Source="{Binding img}" />
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding name}" FontSize="25"/>
+                        <UserControl>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="ReponsiveMP3">
+                                    <VisualState x:Name="Desktop">
+                                        <VisualState.StateTriggers>
+                                            <AdaptiveTrigger MinWindowWidth="500"/>
+                                        </VisualState.StateTriggers>
+                                        <VisualState.Setters>
+                                            <Setter Target="Naam.FontSize" Value="20" />
+                                            <Setter Target="Mp3Afbeelding.Width" Value="150"/>
+                                            <Setter Target="Mp3Afbeelding.Height" Value="150"/>
+                                            <Setter Target="StackPanelMP3.Orientation" Value="Horizontal"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                    <VisualState x:Name="Mobile">
+                                        <VisualState.StateTriggers>
+                                            <AdaptiveTrigger MinWindowWidth="0"/>
+                                        </VisualState.StateTriggers>
+                                        <VisualState.Setters>
+                                            <Setter Target="Naam.FontSize" Value="20" />
+                                            <Setter Target="Mp3Afbeelding.Width" Value="100"/>
+                                            <Setter Target="Mp3Afbeelding.Height" Value="100"/>
+                                            <Setter Target="StackPanelMP3.Orientation" Value="Vertical"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <StackPanel x:Name="StackPanelMP3">
+                                <Image x:Name="Mp3Afbeelding" Source="{Binding img}" />
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock x:Name="Naam" Text="{Binding name}"/>
+                                </StackPanel>
                             </StackPanel>
-                        </StackPanel>
+                        </UserControl>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
