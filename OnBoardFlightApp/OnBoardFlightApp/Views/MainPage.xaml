@@ -26,6 +26,7 @@
                 <NavigationViewItem Icon="Video" Content="Bekijk films en series" Tag="Movie" />
                 <NavigationViewItem Icon="Audio" Content="Beluister muziek" Tag="Music" />
                 <NavigationViewItem Icon="People" Content="Reisgezelschap" Tag="Chat" />
+                <NavigationViewItem Icon="Page2" Content="Tekenen" Tag="Teken" />
             </NavigationView.MenuItems>
             <Frame x:Name="contentFrame"/>
         </NavigationView>
