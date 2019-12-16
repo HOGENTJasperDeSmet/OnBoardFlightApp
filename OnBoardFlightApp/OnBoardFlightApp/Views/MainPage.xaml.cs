@@ -64,10 +64,6 @@ namespace OnBoardFlightApp
                     contentFrame.Navigate(typeof(Meldingen));
                     break;
 
-                case "Info":
-                    contentFrame.Navigate(typeof(Info));
-                    break;
-
                 case "Movie":
                     contentFrame.Navigate(typeof(Movies));
                     break;

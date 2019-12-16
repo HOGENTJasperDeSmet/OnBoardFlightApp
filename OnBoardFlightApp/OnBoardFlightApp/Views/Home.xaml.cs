@@ -51,6 +51,8 @@ namespace OnBoardFlightApp
             map.Style = Windows.UI.Xaml.Controls.Maps.MapStyle.Aerial3DWithRoads;
             map.MapProjection = Windows.UI.Xaml.Controls.Maps.MapProjection.Globe;
             ShowRouteOnMap();
+            map.MapServiceToken = "Wlmxnwrh1DbLmvNxtiYT~b7sS5Eetr3-5c06L7qVkKA~Auir0q538T9rXDlFy-nctuxhWBFfg1zd814D6GxTC-h-k28FIWjsweuQzXVVyCit";
+
             Timer.Tick += calculateTimePercent;
             deptDateTime = DateTime.Now.AddMinutes(-1);
             arrDatetime = DateTime.Now.AddMinutes(2);
@@ -84,10 +86,6 @@ namespace OnBoardFlightApp
             destination = new BasicGeoposition() { Latitude = ViewModel.Flight.Bestemming.Lattitude, Longitude = ViewModel.Flight.Bestemming.Longitude };
             BasicGeoposition middle = new BasicGeoposition() { Latitude = (origin.Latitude + destination.Latitude) / 2, Longitude = (origin.Longitude + destination.Longitude) / 2 };
             Geopoint middleGeopoint = new Geopoint(middle);
-
-
-
-            map.MapServiceToken = "Wlmxnwrh1DbLmvNxtiYT~b7sS5Eetr3-5c06L7qVkKA~Auir0q538T9rXDlFy-nctuxhWBFfg1zd814D6GxTC-h-k28FIWjsweuQzXVVyCit";
 
 
             lineTravelled = new MapPolyline();

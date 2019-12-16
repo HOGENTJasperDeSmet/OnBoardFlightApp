@@ -46,30 +46,36 @@ namespace OnBoardFlightApp
         }
         private async void captureQr(object sender, object e)
         {
-            mediaCapture = new MediaCapture();
-            await mediaCapture.InitializeAsync();
-            // Prepare and capture photo
-            var lowLagCapture = await mediaCapture.PrepareLowLagPhotoCaptureAsync(ImageEncodingProperties.CreateUncompressed(MediaPixelFormat.Bgra8));
+            try{
+                mediaCapture = new MediaCapture();
+                await mediaCapture.InitializeAsync();
+                // Prepare and capture photo
+                var lowLagCapture = await mediaCapture.PrepareLowLagPhotoCaptureAsync(ImageEncodingProperties.CreateUncompressed(MediaPixelFormat.Bgra8));
 
-            var capturedPhoto = await lowLagCapture.CaptureAsync();
-            var softwareBitmap = capturedPhoto.Frame.SoftwareBitmap;
+                var capturedPhoto = await lowLagCapture.CaptureAsync();
+                var softwareBitmap = capturedPhoto.Frame.SoftwareBitmap;
 
-            BarcodeReader r = new BarcodeReader();
-            Result res = r.Decode(softwareBitmap);
-            if (res != null)
+                BarcodeReader r = new BarcodeReader();
+                Result res = r.Decode(softwareBitmap);
+                if (res != null)
+                {
+                    Passagier passagier = ((App)Application.Current).Zetel.Passagier;
+                    if (passagier.getCode() == res.Text)
+                    {
+                        Frame.Navigate(typeof(MainPage), null, new DrillInNavigationTransitionInfo());
+                    }
+                    else
+                    {
+                        myStoryboard.Begin();
+                        Melding.Text = "Verkeerde boarding pass";
+                    }
+                }
+                await lowLagCapture.FinishAsync();
+            }catch (Exception ex)
             {
-                Passagier passagier = ((App)Application.Current).Zetel.Passagier;
-                if (passagier.getCode() == res.Text)
-                {
-                    Frame.Navigate(typeof(MainPage), null, new DrillInNavigationTransitionInfo());
-                }
-                else
-                {
-                    myStoryboard.Begin();
-                    Melding.Text = "Verkeerde boarding pass";
-                }
+                Console.Write(ex);
             }
-            await lowLagCapture.FinishAsync();
+           
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

@@ -43,6 +43,7 @@ namespace OnBoardFlightApp.Views
         {
             String value;
             value = message.Text;
+            message.Text = "";
             ViewModel.postChatBericht(value);
             
         }

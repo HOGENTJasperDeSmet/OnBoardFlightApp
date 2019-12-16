@@ -150,9 +150,6 @@
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
     <Compile Include="HttpRandomAccessStream.cs" />
-    <Compile Include="Views\Info.xaml.cs">
-      <DependentUpon>Info.xaml</DependentUpon>
-    </Compile>
     <Compile Include="LocationManager.cs" />
     <Compile Include="Views\Meldingen.xaml.cs">
       <DependentUpon>Meldingen.xaml</DependentUpon>
@@ -268,10 +265,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Home.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Info.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
