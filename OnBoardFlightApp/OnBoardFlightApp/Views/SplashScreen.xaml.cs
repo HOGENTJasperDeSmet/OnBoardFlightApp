@@ -48,7 +48,6 @@ namespace OnBoardFlightApp
         {
             mediaCapture = new MediaCapture();
             await mediaCapture.InitializeAsync();
-            mediaCapture.Failed += MediaCapture_Failed;
             // Prepare and capture photo
             var lowLagCapture = await mediaCapture.PrepareLowLagPhotoCaptureAsync(ImageEncodingProperties.CreateUncompressed(MediaPixelFormat.Bgra8));
 
@@ -63,7 +62,6 @@ namespace OnBoardFlightApp
                 if (passagier.getCode() == res.Text)
                 {
                     Frame.Navigate(typeof(MainPage), null, new DrillInNavigationTransitionInfo());
-
                 }
                 else
                 {
@@ -72,11 +70,6 @@ namespace OnBoardFlightApp
                 }
             }
             await lowLagCapture.FinishAsync();
-        }
-
-        private void MediaCapture_Failed(MediaCapture sender, MediaCaptureFailedEventArgs errorEventArgs)
-        {
-            Console.Write("gail");
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
