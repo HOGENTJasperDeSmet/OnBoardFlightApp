@@ -41,9 +41,16 @@ namespace OnBoardFlightApp.ViewModel
             return stringLijst;
         }
 
-        public void VoegOptieToe(int i)
+        public async void VoegOptieToe(int i)
         {
-            BestellingOptiesToegevoegd.Add(BestellingOpties[i]);
+            if(i != -1)
+            {
+                BestellingOptiesToegevoegd.Add(BestellingOpties[i]);
+            }
+            else
+            {
+                await new MessageDialog("Geen optie geselecteerd").ShowAsync();
+            }
         }
 
         public async Task<Bestelling> Post()
@@ -51,13 +58,19 @@ namespace OnBoardFlightApp.ViewModel
             var bestelling = new { Afgehandeld = false, BestellingOpties = BestellingOptiesToegevoegd };
             try
             {
-                var request = new HttpRequestMessage
+                App app = (App)App.Current;
+                app.GetZetel(app.Zetel.Id);
+                if (!app.IsLegeZetel())
                 {
-                    Method = HttpMethod.Post,
-                    RequestUri = new Uri(Api + "/1"),
-                    Content = new StringContent(JsonConvert.SerializeObject(bestelling), Encoding.UTF8, "application/json")
-                };
-                await Client.SendAsync(request); 
+                    var id = app.Zetel.Passagier.Id;
+                    var request = new HttpRequestMessage
+                    {
+                        Method = HttpMethod.Post,
+                        RequestUri = new Uri(Api + "/" + id),
+                        Content = new StringContent(JsonConvert.SerializeObject(bestelling), Encoding.UTF8, "application/json")
+                    };
+                    await Client.SendAsync(request);
+                }
             }
             catch (Exception ex)
             {

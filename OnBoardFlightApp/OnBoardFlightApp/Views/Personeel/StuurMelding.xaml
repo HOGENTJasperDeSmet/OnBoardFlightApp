@@ -22,6 +22,9 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock 
                 Grid.Column="0"
@@ -37,11 +40,9 @@
                 PlaceholderText="Melding..."
                 Margin="10"
                 Width="250"/>
-            <StackPanel Orientation="Horizontal"
-                        Grid.Column="0"
-                        Grid.Row="2"
-                        HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button
+                Grid.Column="0"
+                Grid.Row="2"
                 x:Name="StuurButtonNaarIedereen"
                 Content="Stuur naar alle passagiers"
                 Background="DodgerBlue"
@@ -49,7 +50,19 @@
                 Foreground="White"
                 Margin="6"
                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <ComboBox 
+                Grid.Column="0"
+                Grid.Row="4"
+                Width="300" 
+                Margin="20"
+                x:Name="passagierBox" 
+                Header="Of stuur naar een specifieke passagier"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            </ComboBox>
             <Button 
+                Grid.Column="0"
+                Grid.Row="5"
                 x:Name="StuurButton"
                 Content="Stuur"
                 Background="DodgerBlue"
@@ -57,7 +70,6 @@
                 Foreground="White" 
                 HorizontalAlignment="Center"
                 Margin="6"/>
-            </StackPanel>
         </Grid>
     </ScrollViewer>
 </Page>

@@ -118,10 +118,5 @@ namespace OnBoardFlightApp
             await map.TrySetViewAsync(middleGeopoint, 4.8, 0, 30, MapAnimationKind.Bow);
 
         }
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            var zetel = e.Parameter as Zetel;
-            ViewModel.SetZetel(zetel);
-        }
     }
 }

@@ -46,6 +46,16 @@ namespace OnBoardFlightApp
                 var zetel = JsonConvert.DeserializeObject<Zetel>(json);
                 Zetel = zetel;     
         }
+
+        public bool IsLegeZetel()
+        {
+            if(Zetel.Passagier == null)
+            {
+                return true;
+            }
+            return false;
+
+        }
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
         /// will be used such as when the application is launched to open a specific file.

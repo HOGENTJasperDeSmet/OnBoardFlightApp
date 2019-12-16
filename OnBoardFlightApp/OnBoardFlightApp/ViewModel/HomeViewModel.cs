@@ -19,19 +19,10 @@ namespace OnBoardFlightApp.ViewModel
         {
             FlightService flightService = FlightService.Instance;
             Flight = flightService.Flight;
-            Zetel = new Zetel();
-        }
-
-
-        public void SetZetel(Zetel zetel)
-        {
-            Zetel.Klasse = zetel.Klasse;
-            Zetel.Id = zetel.Id;
-            Zetel.Rij = zetel.Rij;
-            Zetel.Stoel = zetel.Stoel;
-            Zetel.Passagier = zetel.Passagier;
-           
-            //Zetel.Passagier.Voornaam = zetel.Passagier.Voornaam;
+            App app = (App)App.Current;
+            app.GetZetel(app.Zetel.Id);
+            var zetel = app.Zetel;
+            Zetel = zetel;
         }
     }
 }

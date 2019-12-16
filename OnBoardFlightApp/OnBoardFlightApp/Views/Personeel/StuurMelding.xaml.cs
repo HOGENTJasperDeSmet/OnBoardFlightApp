@@ -26,26 +26,32 @@ namespace OnBoardFlightApp.Views.Personeel
         public StuurMelding()
         {
             this.InitializeComponent();
+            VulOp();
+        }
+
+        private async void VulOp()
+        {
+            passagierBox.ItemsSource = await ViewModel.GetPassagiers();
         }
 
         private async void StuurButton_Click(object sender, RoutedEventArgs e)
         {
             var inhoud = MeldingText.Text;
-            if(inhoud != null || inhoud != "")
+            if(inhoud != null && inhoud != "" && passagierBox.SelectedIndex != -1)
             {
-                await ViewModel.Post(inhoud, 1);
+                await ViewModel.Post(inhoud, passagierBox.SelectedIndex + 1);
                 await new MessageDialog("Melding geplaatst voor " + "user").ShowAsync();
             }
             else
             {
-                await new MessageDialog("Vul een melding in.").ShowAsync();
+                await new MessageDialog("Vul een melding in en selecteer een passagier.").ShowAsync();
             }
         }
 
         private async void StuurButtonNaarIedereen_Click(object sender, RoutedEventArgs e)
         {
             var inhoud = MeldingText.Text;
-            if (inhoud != null || inhoud != "")
+            if (inhoud != null && inhoud != "")
             {
                 await ViewModel.PostToAll(inhoud);
                 await new MessageDialog("Melding geplaatst voor alle passagiers!").ShowAsync();
@@ -54,6 +60,11 @@ namespace OnBoardFlightApp.Views.Personeel
             {
                 await new MessageDialog("Vul een melding in.").ShowAsync();
             }
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            ViewModel.SetToken(e.Parameter as string);
         }
     }
 }

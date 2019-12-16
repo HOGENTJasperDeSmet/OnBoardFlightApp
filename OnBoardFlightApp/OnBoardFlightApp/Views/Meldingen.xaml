@@ -21,7 +21,7 @@
         </ListView.HeaderTemplate>
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="model:Melding">
-                <TextBlock FontSize="20" Margin="15" Text="{x:Bind Inhoud}"></TextBlock>
+                <TextBlock TextWrapping="Wrap"  FontSize="20" Margin="15" Text="{x:Bind Inhoud}"></TextBlock>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>

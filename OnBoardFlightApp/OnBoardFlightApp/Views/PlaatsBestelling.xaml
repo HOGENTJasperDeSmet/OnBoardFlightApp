@@ -27,7 +27,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
             </ComboBox>
-            <ListView Name="Bestellingen" MinHeight="200" ItemsSource="{x:Bind ViewModel.BestellingOptiesToegevoegd, Mode=OneWay}">
+            <ListView VerticalAlignment="Center" Name="Bestellingen" MinHeight="200" MaxWidth="300" ItemsSource="{x:Bind ViewModel.BestellingOptiesToegevoegd, Mode=OneWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="model:BestellingOptie">
                         <StackPanel Orientation="Horizontal">

@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -38,12 +39,19 @@ namespace OnBoardFlightApp.Views.Personeel
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            var id1 = zetelBox1.SelectedIndex + 1;
-            var id2 = zetelBox2.SelectedIndex + 1;
-            ViewModel.VeranderZetel(id1, id2);
-            Refresh();
+            if(zetelBox1.SelectedIndex != -1 && zetelBox2.SelectedIndex != -1)
+            {
+                var id1 = zetelBox1.SelectedIndex + 1;
+                var id2 = zetelBox2.SelectedIndex + 1;
+                ViewModel.VeranderZetel(id1, id2);
+                Refresh();
+            }
+            else
+            {
+                await new MessageDialog("Gelieve 2 personen te selecteren.").ShowAsync();
+            }
         }
 
         private async void Refresh()
@@ -54,7 +62,7 @@ namespace OnBoardFlightApp.Views.Personeel
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            ViewModel.Token = e.Parameter as string;
+            ViewModel.SetToken(e.Parameter as string);
         }
     }
 }

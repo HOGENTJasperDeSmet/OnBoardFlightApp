@@ -16,9 +16,9 @@ namespace OnBoardFlightApp
             this.InitializeComponent();
             Load();
         }
-        public async void Load()
+        public void Load()
         {
-            contentFrame.Navigate(typeof(Home), await MainPageViewModel.GetZetel(1));
+            contentFrame.Navigate(typeof(Home));
         }
         private void nvSample_Loaded(object sender, RoutedEventArgs e)
         {
@@ -41,7 +41,7 @@ namespace OnBoardFlightApp
         {
             if (args.IsSettingsInvoked)
             {
-                contentFrame.Navigate(typeof(LoginPersoneel));
+
             }
             else
             {
@@ -57,7 +57,7 @@ namespace OnBoardFlightApp
             {
 
                 case "Home":
-                    contentFrame.Navigate(typeof(Home), MainPageViewModel.Zetel);
+                    contentFrame.Navigate(typeof(Home));
                     break;
 
                 case "Melding":
@@ -65,7 +65,7 @@ namespace OnBoardFlightApp
                     break;
 
                 case "Info":
-                     contentFrame.Navigate(typeof(Info));
+                    contentFrame.Navigate(typeof(Info));
                     break;
 
                 case "Movie":
@@ -85,7 +85,13 @@ namespace OnBoardFlightApp
                     contentFrame.Navigate(typeof(PlaatsBestelling));
                     break;
                 case "Chat":
-                    contentFrame.Navigate(typeof(Groepschat), MainPageViewModel.Zetel);
+                    contentFrame.Navigate(typeof(Groepschat));
+                    break;
+                case "Teken":
+                    contentFrame.Navigate(typeof(Teken));
+                    break;
+                case "Login":
+                    contentFrame.Navigate(typeof(LoginPersoneel));
                     break;
 
             }
