@@ -14,6 +14,7 @@
                          Margin="0,0,0,0"              
                         PaneDisplayMode="LeftCompact"
                         ItemInvoked="nvSample_ItemInvoked"
+                        IsSettingsVisible="false"
                         BackRequested="MainView_NavigationView_BackRequested"
                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsBackEnabled="True">
             <NavigationView.MenuItems>
