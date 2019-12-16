@@ -41,10 +41,18 @@ namespace OnBoardFlightApp
         }
         public async void GetZetel(int id)
         {
+            try
+            {
                 HttpClient Client = new HttpClient();
-                var json = await Client.GetStringAsync("http://localhost:5000/api/Flight/zetels/"+ id);
+                var json = await Client.GetStringAsync("http://localhost:5000/api/Flight/zetels/" + id);
                 var zetel = JsonConvert.DeserializeObject<Zetel>(json);
-                Zetel = zetel;     
+                Zetel = zetel;
+            }
+            catch (Exception e)
+            {
+                GetZetel(id);
+            }
+    
         }
 
         public bool IsLegeZetel()
