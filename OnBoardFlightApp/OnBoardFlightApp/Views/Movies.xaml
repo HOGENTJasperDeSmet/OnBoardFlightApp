@@ -18,19 +18,92 @@
             <ListView Name="lvMovies" IsItemClickEnabled="True" ItemClick="Movie_Click" ItemsSource="{Binding Movies}" SelectionChanged="LvMovies_SelectionChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Image HorizontalAlignment="Left" Width="150" Height="150" Source="{Binding Poster}" />
-                            <StackPanel Orientation="Vertical">
-                            <TextBlock Text="{Binding Title}" FontSize="25"/>
-                            <TextBlock Text="{Binding Genre}" FontSize="15"/>
-                            <TextBlock Text="{Binding Director}" FontSize="15"/>
-                            <TextBlock Text="{Binding Writer}" FontSize="15"/>
-                            <TextBlock Text="{Binding Actors}" FontSize="15"/>
-                            <TextBlock Text="{Binding Runtime}" FontSize="15"/>
-                            <TextBlock Text="{Binding Released}" FontSize="15"/>
-                            <TextBlock Text="{Binding Language}" FontSize="15"/>
-                            </StackPanel>
-                        </StackPanel>
+                        <UserControl>
+                            <Grid>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="ReponsiveMovie">
+                                        <VisualState x:Name="Mobile">
+                                            <VisualState.StateTriggers>
+                                                <AdaptiveTrigger MinWindowWidth="0"/>
+                                            </VisualState.StateTriggers>
+                                            <VisualState.Setters>
+                                                <Setter Target="MovieInfo.Width" Value="360"/>
+                                                <Setter Target="MovieStackPanel.Orientation" Value="Vertical"/>
+                                                <Setter Target="MovieDetail.Orientation" Value="Vertical"/>
+                                                <Setter Target="Poster.HorizontalAlignment" Value="Left"/>
+                                                <Setter Target="Poster.Width" Value="150" />
+                                                <Setter Target="Poster.Height" Value="150" />
+                                                <Setter Target="Title.FontSize" Value="25" />
+                                                <Setter Target="Genre.FontSize" Value="10" />
+                                                <Setter Target="Director.FontSize" Value="10" />
+                                                <Setter Target="Writer.FontSize" Value="10" />
+                                                <Setter Target="Actors.FontSize" Value="10" />
+                                                <Setter Target="RunTime.FontSize" Value="10" />
+                                                <Setter Target="Released.FontSize" Value="10" />
+                                                <Setter Target="Language.FontSize" Value="10" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Tablet">
+                                            <VisualState.StateTriggers>
+                                                <AdaptiveTrigger MinWindowWidth="600"/>
+                                            </VisualState.StateTriggers>
+                                            <VisualState.Setters>
+                                                <Setter Target="MovieInfo.Width" Value="600"/>
+                                                <Setter Target="MovieDetail.Orientation" Value="Vertical"/>
+                                                <Setter Target="MovieStackPanel.Orientation" Value="Horizontal"/>
+                                                <Setter Target="Poster.HorizontalAlignment" Value="Left"/>
+                                                <Setter Target="Poster.Width" Value="150" />
+                                                <Setter Target="Poster.Height" Value="150" />
+                                                <Setter Target="Title.FontSize" Value="25" />
+                                                <Setter Target="Genre.FontSize" Value="13" />
+                                                <Setter Target="Director.FontSize" Value="13" />
+                                                <Setter Target="Writer.FontSize" Value="13" />
+                                                <Setter Target="Actors.FontSize" Value="13" />
+                                                <Setter Target="RunTime.FontSize" Value="13" />
+                                                <Setter Target="Released.FontSize" Value="13" />
+                                                <Setter Target="Language.FontSize" Value="13" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Desktop">
+                                            <VisualState.StateTriggers>
+                                                <AdaptiveTrigger MinWindowWidth="800"/>
+                                            </VisualState.StateTriggers>
+                                            <VisualState.Setters>
+                                                <Setter Target="MovieInfo.Width" Value="Auto"/>
+                                                <Setter Target="MovieDetail.Orientation" Value="Vertical"/>
+                                                <Setter Target="MovieStackPanel.Orientation" Value="Horizontal"/>
+                                                <Setter Target="Poster.HorizontalAlignment" Value="Left"/>
+                                                <Setter Target="Poster.Width" Value="150" />
+                                                <Setter Target="Poster.Height" Value="150" />
+                                                <Setter Target="Title.FontSize" Value="25" />
+                                                <Setter Target="Genre.FontSize" Value="15" />
+                                                <Setter Target="Director.FontSize" Value="15" />
+                                                <Setter Target="Writer.FontSize" Value="15" />
+                                                <Setter Target="Actors.FontSize" Value="15" />
+                                                <Setter Target="RunTime.FontSize" Value="15" />
+                                                <Setter Target="Released.FontSize" Value="15" />
+                                                <Setter Target="Language.FontSize" Value="15" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid x:Name="MovieInfo">
+                                <StackPanel x:Name="MovieStackPanel">
+                                    <Image x:Name="Poster" Width="150" Height="150" Source="{Binding Poster}" />
+                                    <StackPanel x:Name="MovieDetail">
+                                        <TextBlock x:Name="Title" Text="{Binding Title}"/>
+                                        <TextBlock x:Name="Genre" Text="{Binding Genre}"/>
+                                        <TextBlock x:Name="Director" Text="{Binding Director}"/>
+                                        <TextBlock x:Name="Writer" Text="{Binding Writer}"/>
+                                        <TextBlock x:Name="Actors" Text="{Binding Actors}"/>
+                                        <TextBlock x:Name="RunTime" Text="{Binding Runtime}"/>
+                                        <TextBlock x:Name="Released" Text="{Binding Released}"/>
+                                        <TextBlock x:Name="Language" Text="{Binding Language}"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                </Grid>
+                            </Grid>
+                        </UserControl>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

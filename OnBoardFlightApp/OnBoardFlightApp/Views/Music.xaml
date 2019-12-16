@@ -34,6 +34,19 @@
                                                 <Setter Target="StackPanelMP3.Width" Value="360"/>
                                             </VisualState.Setters>
                                         </VisualState>
+                                        <VisualState x:Name="Tablet">
+                                            <VisualState.StateTriggers>
+                                                <AdaptiveTrigger MinWindowWidth="600"/>
+                                            </VisualState.StateTriggers>
+                                            <VisualState.Setters>
+                                                <Setter Target="Naam.FontSize" Value="13" />
+                                                <Setter Target="Naam.TextAlignment" Value="Center" />
+                                                <Setter Target="Mp3Afbeelding.Width" Value="200"/>
+                                                <Setter Target="Mp3Afbeelding.Height" Value="200"/>
+                                                <Setter Target="StackPanelMP3.Orientation" Value="Vertical"/>
+                                                <Setter Target="StackPanelMP3.Width" Value="600"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
                                         <VisualState x:Name="Desktop">
                                             <VisualState.StateTriggers>
                                                 <AdaptiveTrigger MinWindowWidth="800"/>
