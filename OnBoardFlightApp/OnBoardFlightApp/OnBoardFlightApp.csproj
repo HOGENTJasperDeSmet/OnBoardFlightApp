@@ -216,14 +216,9 @@
     <None Include="OnBoardFlightApp_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\aeroplane.png" />
-    <Content Include="Assets\aeroplane.svg" />
-    <Content Include="Assets\air-freight.png" />
     <Content Include="Assets\DummyMP4\hangover.mp4" />
     <Content Include="Assets\DummyMP4\thesocialnetwork.mp4" />
     <Content Include="Assets\DummyMP4\zombieland.mp4" />
-    <Content Include="Assets\flight-route.png" />
-    <Content Include="Assets\Img\vliegtuig.jpg" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-125.png" />
     <Content Include="Assets\SplashScreen.scale-150.png" />

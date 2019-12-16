@@ -53,7 +53,7 @@ namespace OnBoardFlightApp
             ShowRouteOnMap();
             map.MapServiceToken = "Wlmxnwrh1DbLmvNxtiYT~b7sS5Eetr3-5c06L7qVkKA~Auir0q538T9rXDlFy-nctuxhWBFfg1zd814D6GxTC-h-k28FIWjsweuQzXVVyCit";
 
-            Timer.Tick += calculateTimePercent;
+            Timer.Tick += tickClock;
             deptDateTime = DateTime.Now.AddMinutes(-1);
             arrDatetime = DateTime.Now.AddMinutes(2);
             Timer.Interval = new TimeSpan(0, 0, 1);
@@ -61,24 +61,23 @@ namespace OnBoardFlightApp
 
         }
 
-        private void calculateTimePercent(object sender, object e)
+        private void tickClock(object sender, object e)
         {
             var total = (ViewModel.Flight.ArrivalTime - ViewModel.Flight.DepartureTime).TotalSeconds;
             var percentage = (DateTime.Now - ViewModel.Flight.DepartureTime).TotalSeconds * 100 / total;
             progress.Value = percentage;
-            calculatePointBasedOnPercentage(percentage /100);
-            
+            if (percentage < 100)
+            {
+                calculatePointBasedOnPercentage(percentage /100);
+            }
+            currentTime.Text = DateTime.Now.ToString("HH:mm:ss");
         }
         private void calculatePointBasedOnPercentage(double per)
         {
-            if (per < 1)
-            {
                 travelled.Latitude = origin.Latitude + (destination.Latitude - origin.Latitude) * per;
                 travelled.Longitude = origin.Longitude + (destination.Longitude - origin.Longitude) * per;
                 lineTravelled.Path = new Geopath(new List<BasicGeoposition> { origin, travelled });
                 line.Path = new Geopath(new List<BasicGeoposition> { travelled, destination });
-            }
-            currentTime.Text = DateTime.Now.ToString("HH:mm:ss");
         }
         private async void ShowRouteOnMap()
         {
@@ -103,15 +102,6 @@ namespace OnBoardFlightApp
             line.StrokeThickness = 5;
             line.StrokeDashed = true;
             map.MapElements.Add(line);
-
-            //VliegtuigIcon = new MapIcon
-            //{
-            //    Location = new Geopoint(travelled),
-            //    NormalizedAnchorPoint = new Point(0.5, 0.5),
-            //    ZIndex = 0,
-            //};
-            ////VliegtuigIcon.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/aeroplane.png"));
-            //map.MapElements.Add(VliegtuigIcon);
 
             await map.TrySetViewAsync(middleGeopoint, 4.8, 0, 30, MapAnimationKind.Bow);
 
