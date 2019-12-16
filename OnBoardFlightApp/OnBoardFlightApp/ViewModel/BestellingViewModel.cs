@@ -26,12 +26,15 @@ namespace OnBoardFlightApp.ViewModel
         {
             App app = (App)App.Current;
             app.GetZetel(app.Zetel.Id);
-            var id = app.Zetel.Passagier.Id;
-            var json = await client.GetStringAsync(new Uri("http://localhost:5000/api/Bestelling/user/" + id));
-            var list = JsonConvert.DeserializeObject<IEnumerable<Bestelling>>(json);
-            foreach(var i in list)
+            if (!app.IsLegeZetel())
             {
-                Bestellingen.Add(i);
+                var id = app.Zetel.Passagier.Id;
+                var json = await client.GetStringAsync(new Uri("http://localhost:5000/api/Bestelling/user/" + id));
+                var list = JsonConvert.DeserializeObject<IEnumerable<Bestelling>>(json);
+                foreach (var i in list)
+                {
+                    Bestellingen.Add(i);
+                }
             }
         }
     }

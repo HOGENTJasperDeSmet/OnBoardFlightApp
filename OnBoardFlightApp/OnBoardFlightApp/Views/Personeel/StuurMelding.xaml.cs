@@ -61,5 +61,10 @@ namespace OnBoardFlightApp.Views.Personeel
                 await new MessageDialog("Vul een melding in.").ShowAsync();
             }
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            ViewModel.SetToken(e.Parameter as string);
+        }
     }
 }

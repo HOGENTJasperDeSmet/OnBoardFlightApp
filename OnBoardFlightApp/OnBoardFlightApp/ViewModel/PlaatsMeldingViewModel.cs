@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +36,11 @@ namespace OnBoardFlightApp.ViewModel
                 stringLijst.Add(i.Naam + " " + i.Voornaam);
             }
             return stringLijst;
+        }
+
+        public void SetToken(string token)
+        {
+            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
 
         public async Task<Bestelling> Post(string inhoud, int id)

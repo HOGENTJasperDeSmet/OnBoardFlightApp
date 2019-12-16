@@ -60,14 +60,17 @@ namespace OnBoardFlightApp.ViewModel
             {
                 App app = (App)App.Current;
                 app.GetZetel(app.Zetel.Id);
-                var id = app.Zetel.Passagier.Id;
-                var request = new HttpRequestMessage
+                if (!app.IsLegeZetel())
                 {
-                    Method = HttpMethod.Post,
-                    RequestUri = new Uri(Api + "/" + id),
-                    Content = new StringContent(JsonConvert.SerializeObject(bestelling), Encoding.UTF8, "application/json")
-                };
-                await Client.SendAsync(request); 
+                    var id = app.Zetel.Passagier.Id;
+                    var request = new HttpRequestMessage
+                    {
+                        Method = HttpMethod.Post,
+                        RequestUri = new Uri(Api + "/" + id),
+                        Content = new StringContent(JsonConvert.SerializeObject(bestelling), Encoding.UTF8, "application/json")
+                    };
+                    await Client.SendAsync(request);
+                }
             }
             catch (Exception ex)
             {

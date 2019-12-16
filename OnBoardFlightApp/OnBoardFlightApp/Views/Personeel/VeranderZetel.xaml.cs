@@ -62,7 +62,7 @@ namespace OnBoardFlightApp.Views.Personeel
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            ViewModel.Token = e.Parameter as string;
+            ViewModel.SetToken(e.Parameter as string);
         }
     }
 }

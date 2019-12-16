@@ -14,7 +14,7 @@
         <vm:BestellingViewModel x:Name="ViewModel"/>
     </Page.DataContext>
 
-    <ListView Name="Bestellingen" ItemsSource="{x:Bind ViewModel.Bestellingen, Mode=OneWay}">
+    <ListView Name="Bestellingen" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.HorizontalScrollBarVisibility="Visible" ItemsSource="{x:Bind ViewModel.Bestellingen, Mode=OneWay}">
         <ListView.HeaderTemplate>
             <DataTemplate x:DataType="model:Bestelling">
                 <StackPanel BorderThickness="0,0,0,1" BorderBrush="Black" Orientation="Horizontal">

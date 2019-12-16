@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
@@ -16,19 +17,14 @@ namespace OnBoardFlightApp.ViewModel
         public HttpClient Client;
 
         public List<Zetel> Zetels { get; set; } = new List<Zetel>();
-
-        private string _token = "";
-        public string Token
-        {
-            get { return _token; }
-            set
-            {
-                _token = value;
-            }
-        }
         public VeranderZetelViewModel()
         {
             Client = new HttpClient();
+        }
+
+        public void SetToken(string token)
+        {
+            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
 
         public async Task<List<string>> GetZetels()
