@@ -18,39 +18,43 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <UserControl>
-                            <VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup x:Name="ReponsiveMP3">
-                                    <VisualState x:Name="Desktop">
-                                        <VisualState.StateTriggers>
-                                            <AdaptiveTrigger MinWindowWidth="500"/>
-                                        </VisualState.StateTriggers>
-                                        <VisualState.Setters>
-                                            <Setter Target="Naam.FontSize" Value="20" />
-                                            <Setter Target="Mp3Afbeelding.Width" Value="150"/>
-                                            <Setter Target="Mp3Afbeelding.Height" Value="150"/>
-                                            <Setter Target="StackPanelMP3.Orientation" Value="Horizontal"/>
-                                        </VisualState.Setters>
-                                    </VisualState>
-
-                                    <VisualState x:Name="Mobile">
-                                        <VisualState.StateTriggers>
-                                            <AdaptiveTrigger MinWindowWidth="0"/>
-                                        </VisualState.StateTriggers>
-                                        <VisualState.Setters>
-                                            <Setter Target="Naam.FontSize" Value="20" />
-                                            <Setter Target="Mp3Afbeelding.Width" Value="100"/>
-                                            <Setter Target="Mp3Afbeelding.Height" Value="100"/>
-                                            <Setter Target="StackPanelMP3.Orientation" Value="Vertical"/>
-                                        </VisualState.Setters>
-                                    </VisualState>
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>
-                            <StackPanel x:Name="StackPanelMP3">
-                                <Image x:Name="Mp3Afbeelding" Source="{Binding img}" />
-                                <StackPanel Orientation="Vertical">
-                                    <TextBlock x:Name="Naam" Text="{Binding name}"/>
-                                </StackPanel>
-                            </StackPanel>
+                            <Grid>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="ReponsiveMP3">
+                                        <VisualState x:Name="Mobile">
+                                            <VisualState.StateTriggers>
+                                                <AdaptiveTrigger MinWindowWidth="0"/>
+                                            </VisualState.StateTriggers>
+                                            <VisualState.Setters>
+                                                <Setter Target="Naam.FontSize" Value="13" />
+                                                <Setter Target="Naam.TextAlignment" Value="Center" />
+                                                <Setter Target="Mp3Afbeelding.Width" Value="200"/>
+                                                <Setter Target="Mp3Afbeelding.Height" Value="200"/>
+                                                <Setter Target="StackPanelMP3.Orientation" Value="Vertical"/>
+                                                <Setter Target="StackPanelMP3.Width" Value="360"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Desktop">
+                                            <VisualState.StateTriggers>
+                                                <AdaptiveTrigger MinWindowWidth="800"/>
+                                            </VisualState.StateTriggers>
+                                            <VisualState.Setters>
+                                                <Setter Target="Naam.FontSize" Value="25" />
+                                                <Setter Target="Mp3Afbeelding.Width" Value="150"/>
+                                                <Setter Target="Mp3Afbeelding.Height" Value="150"/>
+                                                <Setter Target="Mp3Afbeelding.HorizontalAlignment" Value="Left"/>
+                                                <Setter Target="StackPanelMP3.Orientation" Value="Horizontal"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid x:Name="DataGrid">
+                                    <StackPanel x:Name="StackPanelMP3">
+                                        <Image x:Name="Mp3Afbeelding" Source="{Binding img}" />
+                                        <TextBlock x:Name="Naam" Text="{Binding name}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
                         </UserControl>
                     </DataTemplate>
                 </ListView.ItemTemplate>
