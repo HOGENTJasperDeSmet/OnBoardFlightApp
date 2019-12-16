@@ -129,6 +129,7 @@
     <Compile Include="Model\Passagier.cs" />
     <Compile Include="Model\Weather.cs" />
     <Compile Include="Model\Zetel.cs" />
+    <Compile Include="Styleselector\BerichtStyleSelector.cs" />
     <Compile Include="ViewModel\GroepsChatViewModel.cs" />
     <Compile Include="Services\WeatherService.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
@@ -353,6 +354,7 @@
       <Version>0.16.5</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

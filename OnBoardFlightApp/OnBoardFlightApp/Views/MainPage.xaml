@@ -20,7 +20,13 @@
                 <NavigationViewItem Icon="Home" Content="Home" Tag="Home" />
                 <NavigationViewItem Icon="Mail" Content="Meldingen" Tag="Melding" />
                 <NavigationViewItem Icon="AllApps" Content="Informatie vlucht" Tag="Info" />
-                <NavigationViewItem Icon="Bullets" Content="Plaats bestelling" Tag="Bestelling" />
+                <NavigationViewItem Content="Plaats bestelling" Tag="Bestelling">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xED56;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+
+
                 <NavigationViewItem Icon="List" Content="Overzicht bestellingen" Tag="Overzicht" />
                 <NavigationViewItem Icon="Video" Content="Bekijk films en series" Tag="Movie" />
                 <NavigationViewItem Icon="Audio" Content="Beluister muziek" Tag="Music" />

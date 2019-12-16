@@ -23,7 +23,8 @@ namespace OnBoardFlightApp.Views
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class Groepschat : Page
-    { 
+    {
+
         public Groepschat()
         {
             this.InitializeComponent();
@@ -34,12 +35,16 @@ namespace OnBoardFlightApp.Views
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Zetel zetel = ((App)Application.Current).Zetel;
-           Passagier p1 = zetel.Passagier;
+            ViewModel = new GroepsChatViewModel();
         }
 
-        private void Berichten_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
+            String value;
+            value = message.Text;
+            ViewModel.postChatBericht(value);
+            
         }
     }
 }

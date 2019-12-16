@@ -7,30 +7,105 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:OnBoardFlightApp.ViewModel"
     xmlns:model="using:OnBoardFlightApp.Model"
+    xmlns:styleSelectors="using:OnBoardFlightApp.Styleselector"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.DataContext>
         <vm:GroepsChatViewModel x:Name="ViewModel"/>
     </Page.DataContext>
+    <Page.Resources>
+        <Style x:Key="MessageItemStyle" TargetType="SelectorItem">
+            <Setter Property="Height" Value="Auto" />
+            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
 
-    <ScrollViewer VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto">
-        <ListView Name="Berichten" ItemsSource="{x:Bind ViewModel.ChatBerichten, Mode=OneWay}" SelectionChanged="Berichten_SelectionChanged">
-            <ListView.HeaderTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Name="SendMessageTextBox" Style="{StaticResource BaseTextBlockStyle}" TextWrapping="Wrap" Margin="15" HorizontalAlignment="Stretch">Enter a message to send:</TextBlock>
-                        <TextBox Name="MessageTextBox" Width="400px" HorizontalAlignment="Left"/>
-                        <Button x:Name="SendButton" Click="SendButton_Click" Height="33" VerticalAlignment="Center" Width="300">Send</Button>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.HeaderTemplate>
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="model:ChatBericht">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{x:Bind inhoud}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </ScrollViewer>
+        <Style
+        x:Key="RightAlignedMessageStyle"
+        BasedOn="{StaticResource MessageItemStyle}"
+        TargetType="SelectorItem">
+            <Setter Property="Background" Value="#00B4AB" />
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Right" />
+        </Style>
+        <Style
+        x:Key="LeftAlignedMessageStyle"
+        BasedOn="{StaticResource MessageItemStyle}"
+        TargetType="SelectorItem">
+            <Setter Property="Background" Value="LightGray" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+
+        <styleSelectors:BerichtStyleSelector
+        x:Key="BerichtStyleSelector"
+        ReceivedStyle="{StaticResource LeftAlignedMessageStyle}"
+        Sender="{x:Bind ViewModel.Zetel.Passagier, Mode=OneWay}"
+        SentStyle="{StaticResource RightAlignedMessageStyle}" />
+
+        <DataTemplate x:Key="MessageTemplate" x:DataType="model:ChatBericht">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                Style="{StaticResource BodyTextBlockStyle}"
+                Text="{x:Bind inhoud, Mode=OneWay}"
+                TextWrapping="WrapWholeWords" />
+
+                <StackPanel
+                Grid.Row="1"
+                Margin="0,5,0,0"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                    <TextBlock
+                    HorizontalAlignment="Right"
+                    Style="{StaticResource CaptionTextBlockStyle}"
+                    Text="{x:Bind datumVerzonden, Mode=OneWay}" />
+                    <TextBlock
+                    HorizontalAlignment="Right"
+                    Style="{StaticResource CaptionTextBlockStyle}"
+                    Text="{x:Bind passagier, Mode=OneWay}" Margin="6,0,0,0" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+
+        <ItemsPanelTemplate x:Key="MessageItemPanelTemplate">
+            <ItemsStackPanel VerticalAlignment="Bottom" ItemsUpdatingScrollMode="KeepLastItemInView" />
+        </ItemsPanelTemplate>
+    </Page.Resources>
+    
+    
+    <Grid Margin="64">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
+            <ListView
+                x:Name="Messages"
+                Margin="10"
+                CanDrag="False"
+                CanReorderItems="False"
+                IsItemClickEnabled="False"
+                IsTapEnabled="False"
+                ItemContainerStyleSelector="{StaticResource BerichtStyleSelector}"
+                ItemTemplate="{StaticResource MessageTemplate}"
+                ItemsPanel="{StaticResource MessageItemPanelTemplate}"
+                ItemsSource="{x:Bind ViewModel.ChatBerichten, Mode=OneWay}"  />
+        </ScrollViewer>
+        <AppBarButton Icon="Send" Click="AppBarButton_Click" Label="Send" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top"/>
+        <TextBox Name="message" Grid.Row="1" FontSize="24" Width="auto" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
+
+
+    </Grid>
+
+
 </Page>

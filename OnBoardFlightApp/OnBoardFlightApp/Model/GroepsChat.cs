@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -26,9 +27,9 @@ namespace OnBoardFlightApp.Model
             set { passagiers = value; RaisePropertyChanged("Passagiers"); }
         }
 
-        private List<ChatBericht> chatberichten;
+        private ObservableCollection<ChatBericht> chatberichten;
 
-        public List<ChatBericht> ChatBerichten
+        public ObservableCollection<ChatBericht> ChatBerichten
         {
             get { return chatberichten; }
             set { chatberichten = value; RaisePropertyChanged("ChatBerichten"); }
@@ -38,9 +39,9 @@ namespace OnBoardFlightApp.Model
         {
             Naam = naam;
             Passagiers = new List<Passagier>();
-            ChatBerichten = new List<ChatBericht>();
+            ChatBerichten = new ObservableCollection<ChatBericht>();
         }
-        public GroepsChat(string naam, List<Passagier> passagiers, List<ChatBericht> chatberichten)
+        public GroepsChat(string naam, List<Passagier> passagiers, ObservableCollection<ChatBericht> chatberichten)
         {
             Naam = naam;
             Passagiers = passagiers;

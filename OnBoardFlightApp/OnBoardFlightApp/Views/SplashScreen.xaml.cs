@@ -11,6 +11,8 @@ using Windows.Graphics.Imaging;
 using Windows.UI.Xaml.Media.Imaging;
 using OnBoardFlightApp.Model;
 using Windows.UI.Xaml.Media.Animation;
+using Windows.System;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -38,7 +40,8 @@ namespace OnBoardFlightApp
             TimerQr.Interval = new TimeSpan(0, 0, 3);
             TimerQr.Start();
             this.InitializeComponent();
-     
+            Window.Current.CoreWindow.KeyDown += Page_KeyDown;
+
             this.DataContext = splashScreenViewModel;
         }
         private async void captureQr(object sender, object e)
@@ -64,14 +67,10 @@ namespace OnBoardFlightApp
                 }
                 else
                 {
-                    
+                    myStoryboard.Begin();
+                    Melding.Text = "Verkeerde boarding pass";
                 }
             }
-            //softwareBitmap = SoftwareBitmap.Convert(softwareBitmap, BitmapPixelFormat.Bgra8, BitmapAlphaMode.Premultiplied);
-            //var source = new SoftwareBitmapSource();
-            //await source.SetBitmapAsync(softwareBitmap);
-            //test.Source = source;
-
             await lowLagCapture.FinishAsync();
         }
 
@@ -99,9 +98,13 @@ namespace OnBoardFlightApp
             Clock.Text = DateTime.Now.ToString("h:mm:ss tt");
         }
 
-        private void Page_PointerPressed(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+
+        private void Page_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
         {
-            
+            if (args.VirtualKey == VirtualKey.Delete)
+            {
+                Frame.Navigate(typeof(MainPage), null, new DrillInNavigationTransitionInfo());
+            }
         }
     }
 }
