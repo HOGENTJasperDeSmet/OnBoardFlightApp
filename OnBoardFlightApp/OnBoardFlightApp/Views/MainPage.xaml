@@ -8,14 +8,12 @@
     xmlns:vm="using:OnBoardFlightApp.ViewModel"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Page.DataContext>
-        <vm:MainPageViewModel x:Name="MainPageViewModel"></vm:MainPageViewModel>
-    </Page.DataContext>
     <Grid>
         <NavigationView x:Name="nvSample"
                         Loaded="nvSample_Loaded"
                 Margin="0,12,0,0"              
                 ItemInvoked="nvSample_ItemInvoked"
+                        IsSettingsVisible="False"
                         IsBackButtonVisible="Collapsed">
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="Home" Content="Home" Tag="Home" />
@@ -27,6 +25,7 @@
                 <NavigationViewItem Icon="Audio" Content="Beluister muziek" Tag="Music" />
                 <NavigationViewItem Icon="People" Content="Reisgezelschap" Tag="Chat" />
                 <NavigationViewItem Icon="Page2" Content="Tekenen" Tag="Teken" />
+                <NavigationViewItem Icon="Admin" Content="Personeel" Tag="Login"/>
             </NavigationView.MenuItems>
             <Frame x:Name="contentFrame"/>
         </NavigationView>

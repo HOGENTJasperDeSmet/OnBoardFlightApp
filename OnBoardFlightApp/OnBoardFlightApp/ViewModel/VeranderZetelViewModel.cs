@@ -41,14 +41,13 @@ namespace OnBoardFlightApp.ViewModel
                 Zetels.Add(i);
                 if(i.Passagier != null)
                 {
-                    stringLijst.Add(i.Passagier.Naam + " op " + i.GetZetel);
+                    stringLijst.Add(i.Passagier.Naam + " " + i.Passagier.Voornaam + " op " + i.GetZetel);
                 }
                 else
                 {
                     stringLijst.Add("Lege stoel op " + i.GetZetel);
                 }
             }
-
             return stringLijst;
         }
 

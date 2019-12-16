@@ -74,10 +74,5 @@ namespace OnBoardFlightApp
                       MapAnimationKind.None);
             }
         }
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            var zetel = e.Parameter as Zetel;
-            ViewModel.SetZetel(zetel);
-        }
     }
 }

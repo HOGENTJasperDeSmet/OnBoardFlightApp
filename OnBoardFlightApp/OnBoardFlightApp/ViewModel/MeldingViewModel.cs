@@ -24,7 +24,10 @@ namespace OnBoardFlightApp.ViewModel
 
         public async void GetAll()
         {
-            var json = await Client.GetStringAsync(new Uri("http://localhost:5000/api/Passagier/melding/1"));
+            App app = (App)App.Current;
+            app.GetZetel(app.Zetel.Id);
+            var id = app.Zetel.Passagier.Id;
+            var json = await Client.GetStringAsync(new Uri("http://localhost:5000/api/Passagier/melding/" + id));
             var list = JsonConvert.DeserializeObject<IEnumerable<Melding>>(json);
             foreach (var i in list)
             {

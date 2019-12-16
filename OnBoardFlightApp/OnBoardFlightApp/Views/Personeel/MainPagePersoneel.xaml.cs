@@ -39,7 +39,6 @@ namespace OnBoardFlightApp
         {
             if (args.IsSettingsInvoked)
             {
-                contentFrame.Navigate(typeof(LoginPersoneel));
             }
             else
             {

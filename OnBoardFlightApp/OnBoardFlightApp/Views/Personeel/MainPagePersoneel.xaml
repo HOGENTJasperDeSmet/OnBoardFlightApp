@@ -13,6 +13,7 @@
                         Loaded="nvSample_Loaded"
                         Margin="0,12,0,0"              
                         ItemInvoked="nvSample_ItemInvoked"
+                        IsSettingsVisible="False"
                         IsBackEnabled="True"
                         BackRequested="NvSample_BackRequested">
             <NavigationView.MenuItems>
