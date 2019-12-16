@@ -37,7 +37,7 @@ namespace OnBoardFlightApp
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-            GetZetel(1);
+            GetZetel(2);
         }
         public async void GetZetel(int id)
         {

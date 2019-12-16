@@ -32,6 +32,8 @@ namespace OnBoardFlightApp.Services
             Flight.DuurInUren = lst.DuurInUren;
             Flight.Origine = lst.Origine;
             Flight.Naam = lst.Naam;
+            Flight.DepartureTime = lst.DepartureTime;
+            Flight.ArrivalTime = lst.DepartureTime.AddHours(lst.DuurInUren);
         }
     }
 }

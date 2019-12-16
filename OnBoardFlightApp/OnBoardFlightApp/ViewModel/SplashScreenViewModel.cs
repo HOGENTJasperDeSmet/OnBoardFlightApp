@@ -24,11 +24,17 @@ namespace OnBoardFlightApp.ViewModel
             WeatherOrigin = weatherService.WeatherOrigin;
             Flight.PropertyChanged += Flight_PropertyChanged;
         }
-
+        public void getSplashArt()
+        {
+            if(Flight.Bestemming != null)
+            {
+                SplashPage.getSplashArt(Flight.Bestemming.Naam);
+            }
+        }
         private void Flight_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            SplashPage.getSplashArt(Flight.Bestemming.Naam);
-            if(e.PropertyName == "Bestemming")
+            getSplashArt();
+            if (e.PropertyName == "Bestemming")
                 weatherService.getWeather(Flight.Bestemming.Naam,WeatherBestemming);
             if(e.PropertyName == "Origine")
                 weatherService.getWeather(Flight.Origine.Naam, WeatherOrigin);

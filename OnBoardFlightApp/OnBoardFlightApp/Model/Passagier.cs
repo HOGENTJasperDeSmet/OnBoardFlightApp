@@ -53,6 +53,10 @@ namespace OnBoardFlightApp.Model
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        public String getCode()
+        {
+            return Id + Naam + Voornaam;
+        }
     }
 }
 

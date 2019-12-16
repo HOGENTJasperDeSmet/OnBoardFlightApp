@@ -15,7 +15,6 @@ namespace OnBoardFlightApp
         {
             this.InitializeComponent();
             Load();
-            
         }
         public async void Load()
         {
@@ -34,7 +33,10 @@ namespace OnBoardFlightApp
                 }
             }
         }
-
+        private void MainView_NavigationView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
+        {
+            this.Frame.GoBack();
+        }
         private void nvSample_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
             if (args.IsSettingsInvoked)

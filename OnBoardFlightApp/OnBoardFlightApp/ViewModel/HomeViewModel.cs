@@ -30,6 +30,7 @@ namespace OnBoardFlightApp.ViewModel
             Zetel.Rij = zetel.Rij;
             Zetel.Stoel = zetel.Stoel;
             Zetel.Passagier = zetel.Passagier;
+           
             //Zetel.Passagier.Voornaam = zetel.Passagier.Voornaam;
         }
     }

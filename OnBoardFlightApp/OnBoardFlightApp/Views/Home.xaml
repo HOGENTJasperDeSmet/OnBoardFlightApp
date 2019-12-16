@@ -1,5 +1,4 @@
-﻿
-<Page
+﻿<Page
     x:Class="OnBoardFlightApp.Home"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,16 +7,32 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:OnBoardFlightApp.ViewModel"
     xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
+    xmlns:sys="using:System"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.DataContext>
         <vm:HomeViewModel x:Name="ViewModel"></vm:HomeViewModel>
     </Page.DataContext>
-    <Grid Margin="0, -228,0,0">
-        <maps:MapControl Name="map" >
+    <Grid>
+        <maps:MapControl Name="map"></maps:MapControl>
+        <RelativePanel Margin="64,64,64,64">
+            <TextBlock x:Name="passagier" FontWeight="Bold" FontSize="78" FontFamily="Segoe UI" Foreground="White" Text="{x:Bind sys:String.Format('Hello {0}', ViewModel.Zetel.Passagier.Voornaam)}" />
+            <RelativePanel RelativePanel.AlignRightWithPanel="true">
+                <TextBlock Name="dept" Text="Departure time" FontFamily="Segoe UI" Foreground="White" FontSize="18" Margin="8,0,0,0"/>
+                <TextBlock Name="deptTime" RelativePanel.Below="dept"  Text="{x:Bind sys:String.Format('{0:HH:mm}', ViewModel.Flight.DepartureTime)}" FontFamily="Segoe UI" Foreground="White" FontSize="64" Margin="0,-18,16,0"/>
+                <TextBlock Name="arr" Text="Arrival time" RelativePanel.RightOf="deptTime" FontFamily="Segoe UI" Foreground="White" FontSize="18" Margin="8,0,0,0"/>
+                <TextBlock Name="arrTime" RelativePanel.Below="arr" RelativePanel.RightOf="deptTime" Text="{x:Bind sys:String.Format('{0:HH:mm}', ViewModel.Flight.ArrivalTime)}" FontFamily="Segoe UI" Foreground="White" FontSize="64" Margin="0,-18,0,0"/>
+                <ProgressBar x:Name="progress" RelativePanel.Below="arrTime" Value="1" Height="8" Margin="0,0,-320,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" HorizontalAlignment="Stretch" RequestedTheme="Default" Foreground="White" />
+                <TextBlock Name="currentTime" FontFamily="Segoe UI" Foreground="White" FontSize="88" RelativePanel.Below="deptTime"/>
+            </RelativePanel>
+            <!--<TextBlock x:Name="Dept" Text="Deptarture time " FontSize="64" FontFamily="Segoe UI" Foreground="White" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" />
+            <TextBlock x:Name="DeptTime" Text="{x:Bind ViewModel.Flight.DuurInUren}" FontSize="64" FontFamily="Segoe UI" Foreground="White" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" />
             
-        </maps:MapControl>
-        <StackPanel VerticalAlignment="Center">
+            <TextBlock x:Name="Arrival" Text="Arrival time" FontSize="64" FontFamily="Segoe UI" Foreground="White" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="Dept"  />
+            <TextBlock x:Name="ArrivalTime" Text="Arrival time" FontSize="64" FontFamily="Segoe UI" Foreground="White" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="Dept"  />-->
+
+        </RelativePanel>
+        <!--<StackPanel VerticalAlignment="Center">
             <TextBlock Text="Hallo: " FontFamily="Arial"  FontSize="24" FontStyle="Italic" TextWrapping="WrapWholeWords" CharacterSpacing="200" Foreground="CornflowerBlue" TextAlignment="Center" />
             <TextBlock Text="{x:Bind ViewModel.Zetel.Passagier.Voornaam}" FontFamily="Arial"  FontSize="24" FontStyle="Italic" CharacterSpacing="200" Foreground="CornflowerBlue" TextAlignment="Center" />
             <TextBlock Text="{x:Bind ViewModel.Zetel.Passagier.Naam}" FontFamily="Arial"  FontSize="24" FontStyle="Italic" CharacterSpacing="200" Foreground="CornflowerBlue" TextAlignment="Center" />
@@ -27,6 +42,7 @@
     CharacterSpacing="200" Foreground="CornflowerBlue" TextAlignment="Center" />
             <TextBlock Text="{x:Bind ViewModel.Zetel.GetZetel}" FontFamily="Arial"  FontSize="24" FontStyle="Italic" TextWrapping="WrapWholeWords"
     CharacterSpacing="200" Foreground="CornflowerBlue" TextAlignment="Center" />
-        </StackPanel>
+        </StackPanel>-->
+
     </Grid>
 </Page>

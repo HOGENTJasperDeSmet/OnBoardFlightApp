@@ -13,14 +13,21 @@
 
     <RelativePanel>
         <TextBlock x:Name="welcomeText"  FontSize="120"  FontFamily="Segoe UI" Foreground="White" Margin="64,64,64,0">Welcome <Bold>onboard</Bold></TextBlock>
-        <TextBlock x:Name="Clock"  FontSize="78"  FontFamily="Segoe UI" Foreground="White" RelativePanel.Below="welcomeText" Margin="64,-20,0,0"/>
+        <TextBlock x:Name="instructions"  FontSize="32"  FontFamily="Segoe UI" Foreground="White"  RelativePanel.Below="welcomeText" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="Please hold your boarding pass infront of the screen to continue" Margin="64,-30,0,0"></TextBlock>
+            
+        <TextBlock x:Name="Clock"  FontSize="78"  FontFamily="Segoe UI" Foreground="White" RelativePanel.Below="instructions" Margin="64,-20,0,0"/>
 
         <TextBlock FontSize="80"  FontFamily="Helvetica" Foreground="White" Text="{x:Bind splashScreenViewModel.WeatherOrigin.Temperatuur, Mode=OneWay}"   Margin="0 0 8 -20" RelativePanel.LeftOf="weatherOrgine"  RelativePanel.Above="orgine" TextWrapping="Wrap" />
         <Image Name="weatherOrgine" Source="{x:Bind splashScreenViewModel.WeatherOrigin.Icon, Mode=OneWay}" Width="80" RelativePanel.Above="orgine" RelativePanel.AlignRightWith="orgine" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,200,0"/>
         <TextBlock x:Name="orgine" Text="{x:Bind splashScreenViewModel.Flight.Origine.Naam, Mode=OneWay}" TextAlignment="Right" RelativePanel.LeftOf="weatherBestemming"  RelativePanel.AlignBottomWithPanel="True" FontSize="48"  FontFamily="Helvetica" Foreground="White" TextWrapping="Wrap" Margin="0,0,200,96"/>
-        
+
         <TextBlock FontSize="120"  FontFamily="Helvetica" Foreground="White" Text="{x:Bind splashScreenViewModel.WeatherBestemming.Temperatuur, Mode=OneWay}"   Margin="0 0 8 -30" RelativePanel.LeftOf="weatherBestemming"  RelativePanel.Above="besteming" TextWrapping="Wrap" />
         <Image Name="weatherBestemming" Source="{x:Bind splashScreenViewModel.WeatherBestemming.Icon, Mode=OneWay}" Width="150" RelativePanel.Above="besteming" RelativePanel.AlignRightWith="besteming" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,96,-15"/>
         <TextBlock x:Name="besteming" Text="{x:Bind splashScreenViewModel.Flight.Bestemming.Naam, Mode=OneWay}" TextAlignment="Right" RelativePanel.AlignRightWithPanel="True"  RelativePanel.AlignBottomWithPanel="True" FontSize="80"  FontFamily="Segoe UI" Foreground="White" TextWrapping="Wrap" Margin="0,0,96,96"/>
+
+        <controls:TeachingTip x:Name="AutoSaveTip"
+            Title="Saving automatically"
+            Subtitle="We save your changes as you go - so you never have to.">
+        </controls:TeachingTip>
     </RelativePanel>
 </Page>

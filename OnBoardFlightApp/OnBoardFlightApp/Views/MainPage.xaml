@@ -11,12 +11,16 @@
     <Page.DataContext>
         <vm:MainPageViewModel x:Name="MainPageViewModel"></vm:MainPageViewModel>
     </Page.DataContext>
+
+
     <Grid>
         <NavigationView x:Name="nvSample"
                         Loaded="nvSample_Loaded"
-                Margin="0,12,0,0"              
-                ItemInvoked="nvSample_ItemInvoked"
-                        IsBackButtonVisible="Collapsed">
+                         Margin="0,0,0,0"              
+                        PaneDisplayMode="LeftCompact"
+                        ItemInvoked="nvSample_ItemInvoked"
+                        BackRequested="MainView_NavigationView_BackRequested"
+                         HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsBackEnabled="True">
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="Home" Content="Home" Tag="Home" />
                 <NavigationViewItem Icon="Mail" Content="Meldingen" Tag="Melding" />

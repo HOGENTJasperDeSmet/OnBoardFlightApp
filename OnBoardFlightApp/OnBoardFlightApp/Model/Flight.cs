@@ -34,6 +34,28 @@ namespace OnBoardFlightApp.Model
                 RaisePropertyChanged("Origine");
             }
         }
+        private DateTime departureTime;
+        public DateTime DepartureTime {
+            get {
+                return departureTime;
+            }
+            set {
+                departureTime = value;
+                RaisePropertyChanged(nameof(DepartureTime));
+            }
+        }
+        private DateTime arrivalTime;
+        public DateTime ArrivalTime {
+            get {
+                return arrivalTime;
+            }
+            set {
+                arrivalTime = value;
+                RaisePropertyChanged(nameof(ArrivalTime));
+            }
+        }
+
+
         private Locatie bestemming;
         public Locatie Bestemming
         {
@@ -60,7 +82,7 @@ namespace OnBoardFlightApp.Model
                 RaisePropertyChanged("DuurInUren");
             }
         }
-
+        
         #endregion
 
 
