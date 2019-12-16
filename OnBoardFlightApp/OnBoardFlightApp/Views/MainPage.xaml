@@ -32,7 +32,6 @@
                 <NavigationViewItem Icon="Audio" Content="Beluister muziek" Tag="Music" />
                 <NavigationViewItem Icon="People" Content="Reisgezelschap" Tag="Chat" />
                 <NavigationViewItem Icon="Page2" Content="Tekenen" Tag="Teken" />
-                <NavigationViewItem Icon="Admin" Content="Personeel" Tag="Login"/>
             </NavigationView.MenuItems>
             <Frame x:Name="contentFrame"/>
         </NavigationView>

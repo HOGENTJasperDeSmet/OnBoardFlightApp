@@ -86,9 +86,6 @@ namespace OnBoardFlightApp
                 case "Teken":
                     contentFrame.Navigate(typeof(Teken));
                     break;
-                case "Login":
-                    contentFrame.Navigate(typeof(LoginPersoneel));
-                    break;
 
             }
         }

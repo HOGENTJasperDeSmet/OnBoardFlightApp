@@ -13,6 +13,7 @@ using OnBoardFlightApp.Model;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.System;
 using Windows.UI.Popups;
+using OnBoardFlightApp.Views;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -60,6 +61,11 @@ namespace OnBoardFlightApp
                 if (res != null)
                 {
                     Passagier passagier = ((App)Application.Current).Zetel.Passagier;
+                    if(res.Text== "admin")
+                    {
+                        Frame.Navigate(typeof(LoginPersoneel), null, new DrillInNavigationTransitionInfo());
+
+                    }
                     if (passagier.getCode() == res.Text)
                     {
                         Frame.Navigate(typeof(MainPage), null, new DrillInNavigationTransitionInfo());
@@ -103,6 +109,10 @@ namespace OnBoardFlightApp
             if (args.VirtualKey == VirtualKey.Delete)
             {
                 Frame.Navigate(typeof(MainPage), null, new DrillInNavigationTransitionInfo());
+            }
+            if(args.VirtualKey == VirtualKey.End)
+            {
+                Frame.Navigate(typeof(LoginPersoneel), null, new DrillInNavigationTransitionInfo());
             }
         }
     }
