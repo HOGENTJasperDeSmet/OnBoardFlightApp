@@ -28,13 +28,10 @@ namespace OnBoardFlightApp
            movie = (Movie)e.Parameter;
            mediaPlayer.Source = MediaSource.CreateFromUri(new Uri(movie.SourceMP4));
         }
-        protected async override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             base.OnNavigatingFrom(e);
-            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-            {
-                mediaPlayer?.MediaPlayer.Dispose();
-            });
+            mediaPlayer.Source = null;
         }
     }
 }
