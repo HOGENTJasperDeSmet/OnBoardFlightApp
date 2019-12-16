@@ -34,7 +34,7 @@ namespace OnBoardFlightApp.Model
         {
             HttpClient client = new HttpClient();
             Random rnd = new Random();
-            var json = await client.GetStringAsync(new Uri("https://api.unsplash.com/search/photos/?client_id=f36966d3bf3670ddb2468a0585104288e040fedaa0ab7629d8dfd2b1c7306672&orientation=landscape&page=" + rnd.Next(1,5) +"&per_page=1&query=" + bestemming));
+            var json = await client.GetStringAsync(new Uri("https://api.unsplash.com/search/photos/?client_id=f36966d3bf3670ddb2468a0585104288e040fedaa0ab7629d8dfd2b1c7306672&orientation=landscape&page=" + rnd.Next(1,8) +"&per_page=1&query=" + bestemming));
             JObject obj = JObject.Parse(json);
             Image = new BitmapImage(new Uri(obj["results"][0]["urls"]["full"].ToString()));
         }

@@ -27,6 +27,8 @@ namespace OnBoardFlightApp
         DispatcherTimer Timer = new DispatcherTimer();
         DispatcherTimer TimerQr = new DispatcherTimer();
 
+
+
         SplashScreenViewModel splashScreenViewModel = new SplashScreenViewModel();
         MediaCapture mediaCapture;
         bool isPreviewing;
@@ -40,6 +42,7 @@ namespace OnBoardFlightApp
             TimerQr.Tick += captureQr;
             TimerQr.Interval = new TimeSpan(0, 0, 3);
             TimerQr.Start();
+            
             this.InitializeComponent();
             Window.Current.CoreWindow.KeyDown += Page_KeyDown;
 
@@ -77,11 +80,16 @@ namespace OnBoardFlightApp
                     }
                 }
                 await lowLagCapture.FinishAsync();
-            }catch (Exception ex)
+            }catch (UnauthorizedAccessException ex)
+            {
+                Melding.Opacity = 1;
+                Melding.Text = "Geen toegang tot webcam of microfoon kijk naar de readme";
+            }
+            catch (Exception ex)
             {
                 Console.Write(ex);
             }
-           
+
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
