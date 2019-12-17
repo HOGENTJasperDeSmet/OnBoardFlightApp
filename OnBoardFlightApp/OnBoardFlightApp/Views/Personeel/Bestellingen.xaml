@@ -13,7 +13,7 @@
         <vm:PersoneelBestellingViewModel x:Name="ViewModel"/>
     </Page.DataContext>
 
-    <ListView Name="AlleBestellingen" ItemsSource="{x:Bind ViewModel.AlleBestellingen, Mode=OneWay}">
+    <ListView Margin="0 15 0 0" Name="AlleBestellingen" ScrollViewer.HorizontalScrollMode="Enabled" ScrollViewer.HorizontalScrollBarVisibility="Visible" ItemsSource="{x:Bind ViewModel.AlleBestellingen, Mode=OneWay}">
         <ListView.HeaderTemplate>
             <DataTemplate x:DataType="model:Bestelling">
                 <StackPanel BorderThickness="0,0,0,1" BorderBrush="Black" Orientation="Horizontal">
@@ -21,7 +21,8 @@
                     <TextBlock Margin="15">Aantal</TextBlock>
                     <TextBlock Margin="15">Gekozen opties</TextBlock>
                     <TextBlock Margin="15">Prijs/stuk</TextBlock>
-                    <TextBlock Margin="15 15 15 15">Toestand</TextBlock>
+                    <TextBlock Margin="15 15 15 15">Passagier</TextBlock>
+                    <TextBlock Margin="30 15 15 15">Toestand</TextBlock>
                 </StackPanel>
             </DataTemplate>
         </ListView.HeaderTemplate>
@@ -43,6 +44,8 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
+                    <TextBlock Margin="0 15 5 15" Text="{x:Bind Passagier.Naam}"></TextBlock>
+                    <TextBlock Margin="0 15 15 15" Text="{x:Bind Passagier.Voornaam}"></TextBlock>
                     <CheckBox Margin="15" IsChecked="{x:Bind Afgehandeld, Mode=TwoWay}"></CheckBox>
                 </StackPanel>
             </DataTemplate>

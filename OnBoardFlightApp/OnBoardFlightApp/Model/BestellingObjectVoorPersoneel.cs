@@ -33,6 +33,17 @@ namespace OnBoardFlightApp.Model
             }
         }
 
+        private Passagier _passagier;
+        public Passagier Passagier
+        {
+            get { return _passagier; }
+            set
+            {
+                _passagier = value;
+                RaisePropertyChanged("Passagier");
+            }
+        }
+
         public async void ChangeAfgehandeld(bool afgehandeld)
         {
             HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Token);
