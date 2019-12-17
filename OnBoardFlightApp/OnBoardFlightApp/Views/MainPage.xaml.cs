@@ -35,7 +35,8 @@ namespace OnBoardFlightApp
         }
         private void MainView_NavigationView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
         {
-            this.Frame.GoBack();
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(SplashScreen));
         }
         private void nvSample_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {

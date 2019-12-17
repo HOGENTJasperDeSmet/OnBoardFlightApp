@@ -23,8 +23,16 @@ namespace OnBoardFlightApp.ViewModel
         public GroepsChatViewModel()
         {
             Zetel = ((App)Application.Current).Zetel;
-            GroepsChat p1 = Zetel.Passagier.Groepschat;
-            ChatBerichten = p1.ChatBerichten;
+            if(Zetel.Passagier.Groepschat != null)
+            {
+                GroepsChat p1 = Zetel.Passagier.Groepschat;
+                ChatBerichten = p1.ChatBerichten;
+            }
+            else
+            {
+                ChatBerichten = new ObservableCollection<ChatBericht>();
+            }
+
         }
 
         internal void SetZetel(Zetel zetel)

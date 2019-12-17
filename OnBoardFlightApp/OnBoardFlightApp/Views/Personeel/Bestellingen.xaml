@@ -21,7 +21,7 @@
                     <TextBlock Margin="15">Aantal</TextBlock>
                     <TextBlock Margin="15">Gekozen opties</TextBlock>
                     <TextBlock Margin="15">Prijs/stuk</TextBlock>
-                    <TextBlock Margin="15 15 15 15">Passagier</TextBlock>
+                    <TextBlock Margin="15 15 15 15">Passagier (zetel)</TextBlock>
                     <TextBlock Margin="30 15 15 15">Toestand</TextBlock>
                 </StackPanel>
             </DataTemplate>
@@ -44,8 +44,13 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
+                    <StackPanel Orientation="Horizontal" MinWidth="150">
                     <TextBlock Margin="0 15 5 15" Text="{x:Bind Passagier.Naam}"></TextBlock>
-                    <TextBlock Margin="0 15 15 15" Text="{x:Bind Passagier.Voornaam}"></TextBlock>
+                    <TextBlock Margin="0 15 5 15" Text="{x:Bind Passagier.Voornaam}"></TextBlock>
+                    <TextBlock Margin="0 15 0 15" Text="("></TextBlock>
+                    <TextBlock Margin="0 15 0 15" Text="{x:Bind Passagier.Zetel.GetZetel}"></TextBlock>
+                    <TextBlock Margin="0 15 0 15" Text=")"></TextBlock>
+                    </StackPanel>
                     <CheckBox Margin="15" IsChecked="{x:Bind Afgehandeld, Mode=TwoWay}"></CheckBox>
                 </StackPanel>
             </DataTemplate>

@@ -47,6 +47,19 @@ namespace OnBoardFlightApp.Model
                 RaisePropertyChanged("Groepschat");
             }
         }
+        private Zetel _zetel;
+        public Zetel Zetel
+        {
+            get
+            {
+                return _zetel;
+            }
+            set
+            {
+                _zetel = value;
+                RaisePropertyChanged("Zetel");
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged([CallerMemberName]string propertyName = "")

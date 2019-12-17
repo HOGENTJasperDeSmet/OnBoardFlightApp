@@ -73,7 +73,7 @@ namespace OnBoardFlightApp
         private void NvSample_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(MainPage));
+            rootFrame.Navigate(typeof(SplashScreen));
         }
     }
 }
